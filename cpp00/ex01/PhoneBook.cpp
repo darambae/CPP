@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 14:14:46 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/17 15:46:29 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/18 11:12:35 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int setInfo(const std::string& question, std::string& input)
     std::string answer;
 
     std::cout << question;
-    std::getline(std::cin.ignore(), answer);
+    std::getline(std::cin, answer);
     if (answer.empty())
         return setInfo(question, input);
     input = answer;
@@ -28,6 +28,7 @@ void    PhoneBook::addContact()
 {
     int i = next_index % 8;
 
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     setInfo("Please enter the first name: ", contact[i].first_name);
     setInfo("Please enter the last name: ", contact[i].last_name);
     setInfo("Please enter the nickname: ", contact[i].nickname);
@@ -41,6 +42,7 @@ void    PhoneBook::searchContact()
 {
     int index;
     
+    std::cout << std::setw(10) << "index" << "|" << std::setw(10) << "first name" << "|" << std::setw(10) << "last name" << "|" << std::setw(10) << "nickname" << std::endl;
     for (int i = 0; i < 8; i++)
     {
         if (contact[i].index != -1)
@@ -71,9 +73,9 @@ void PhoneBook::getContact(int index)
 void    PhoneBook::printWithDot(const std::string& line, bool detail)
 {
     if (line.size() > 10)
-        std::cout << std::setw(10) << line.substr(0, 9) << ".";
+        std::cout << std::setw(9) << std::right << line.substr(0, 9) << ".";
     else
-        std::cout << std::setw(10) << line;
+        std::cout << std::setw(10) << std::right << line;
     if (detail)
         std::cout << std::endl;
 }
@@ -90,15 +92,15 @@ void    PhoneBook::printContact(const Contact& contact, bool details)
     }
     else
     {
-        std::cout << std::setw(10) << "index" << " |" << std::setw(10) << " first name" << "|" << std::setw(10) << "last name" << " |" << std::setw(10) << "nickname" << std::endl;
-        std::cout << std::setw(10) << contact.index << " |";
+        std::cout << std::setw(10) << contact.index << "|";
         printWithDot(contact.first_name, details);
-        std::cout << " |";
+        std::cout << "|";
         printWithDot(contact.last_name, details);
-        std::cout << " |";
+        std::cout << "|";
         printWithDot(contact.nickname, details);
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
+    
 }
 
 
