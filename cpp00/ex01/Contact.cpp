@@ -6,8 +6,11 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:14:08 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/17 11:21:22 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/19 06:40:56 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+Contact::Contact (void) : index(-1) {}
+Contact::~Contact (void) {}

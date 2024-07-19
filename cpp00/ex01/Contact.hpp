@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:11:09 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/18 14:36:09 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/19 06:40:15 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ public:
     std::string phone_number;
     std::string darkest_secret;
 
-    Contact() : index(-1) {};
-    ~Contact() {};
+    Contact();
+    ~Contact();
 };
 
 #endif

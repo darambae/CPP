@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:10:43 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/17 14:19:29 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/19 06:41:23 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ int main()
     std::string command;
     
     std::cout << "Please enter a command: ADD, SEARCH or EXIT" << std::endl;
-    std::cin >> command;
-    // if (command == "EXIT")
-    //     return 0;
+    std::cin >> command; 
     while (command != "EXIT")
     {
         if (command == "ADD")

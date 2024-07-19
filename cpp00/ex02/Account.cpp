@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 11:22:08 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/18 17:25:34 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/19 06:01:39 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,26 @@ int  Account::getNbWithdrawals()
 void  Account::displayAccountsInfos()
 {
     _displayTimestamp();
-    std::cout << " accounts:" << _nbAccounts << ";total:" << _totalAmount << ";deposits:" << _totalNbDeposits << ";withdrawals:" << _totalAmount << std::endl;
+    std::cout << " accounts:" << _nbAccounts << ";total:" << _totalAmount << ";deposits:" << _totalNbDeposits << ";withdrawals:" << _totalNbWithdrawals << std::endl;
 }
 
 void	Account::makeDeposit(int deposit)
 {
+    _displayTimestamp();
     if (deposit > 0)
     {
         _nbDeposits++;
         _totalNbDeposits++;
+        _totalAmount += deposit;
+        std::cout << " index:" << _accountIndex << ";p_amount:" << _amount;
         _amount += deposit;
+        std::cout << ";deposit:" << deposit << ";amount:" << _amount << ";nb_deposits:" << _nbDeposits << std::endl;
     }
 }
 
 bool	Account::makeWithdrawal(int withdrawal)
 {
+    _displayTimestamp();
     if (checkAmount() > withdrawal && withdrawal > 0)
     {
         _nbWithdrawals++;
@@ -104,15 +109,12 @@ Account::Account (int initial_deposit) : _accountIndex(_nbAccounts), _amount(ini
     _nbAccounts++;
     _totalAmount += initial_deposit;
     _displayTimestamp();
-    std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
+    std::cout << " index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
 
 }
 
 Account::~Account ()
 {
-    for (int i = 0; i < _nbAccounts; i++)
-    {
         _displayTimestamp();
-        std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
-    }
+        std::cout << " index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
 }
