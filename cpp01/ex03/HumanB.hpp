@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/19 07:26:42 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/19 11:29:14 by dabae            ###   ########.fr       */
+/*   Created: 2024/07/19 13:45:29 by dabae             #+#    #+#             */
+/*   Updated: 2024/07/19 15:27:39 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
-Zombie::Zombie (void) : _name("default") {}
-Zombie::~Zombie (void) {
-    std::cout << this->_name << " is dead" << std::endl;
-}
+#include "Weapon.hpp"
+#include <string>
+#include <iostream>
 
-void Zombie::announce (void)
+class HumanB
 {
-    std::cout << this->_name << ":  BraiiiiiiinnnzzzZ..." << std::endl;
-}
+private:
+    std::string _name;
+    Weapon *weapon;
+public:
+    HumanB(std::string name);
+    ~HumanB();
+    void attack();
+    void setWeapon(Weapon &weapon);
+};
 
-void Zombie::setName (std::string name)
-{
-    this->_name = name;
-}
+#endif

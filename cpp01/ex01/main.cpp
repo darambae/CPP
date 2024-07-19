@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/19 07:26:42 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/19 11:29:14 by dabae            ###   ########.fr       */
+/*   Created: 2024/07/19 11:00:54 by dabae             #+#    #+#             */
+/*   Updated: 2024/07/19 11:41:06 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie (void) : _name("default") {}
-Zombie::~Zombie (void) {
-    std::cout << this->_name << " is dead" << std::endl;
-}
-
-void Zombie::announce (void)
+int main(void)
 {
-    std::cout << this->_name << ":  BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-void Zombie::setName (std::string name)
-{
-    this->_name = name;
+    Zombie *zombies = zombieHorde(5, "Zombie_horde");
+    for (int i = 0; i < 5; i++)
+        zombies[i].announce();
+    delete [] zombies; //a syntax to delete the array of zombies
+    
+    return 0;
 }

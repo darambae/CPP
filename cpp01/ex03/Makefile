@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/19 11:01:26 by dabae             #+#    #+#              #
-#    Updated: 2024/07/19 11:10:28 by dabae            ###   ########.fr        #
+#    Created: 2024/07/19 12:44:55 by dabae             #+#    #+#              #
+#    Updated: 2024/07/19 13:45:20 by dabae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = human
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

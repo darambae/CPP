@@ -5,19 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/19 07:26:29 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/19 11:26:15 by dabae            ###   ########.fr       */
+/*   Created: 2024/07/19 11:44:07 by dabae             #+#    #+#             */
+/*   Updated: 2024/07/19 11:48:01 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <string>
+#include <iostream>
 
-int main (void)
+int main(void)
 {
-    randomChump("Zombie_stack");
-    Zombie *zombie_heap = newZombie("Zombie_heap");
-    zombie_heap->announce();
-    delete zombie_heap;
+    std::string str = "HI THIS IS BRAIN";
+    std::string *stringPTR = &str;
+    std::string &stringREF = str;
     
-    return (0);
+    std::cout << "Memory address of the string: " << &str << std::endl;
+    std::cout << "Memory address of the stringPTR: " << stringPTR << std::endl;
+    std::cout << "Memory address of the stringREF: " << &stringREF << std::endl;    
+    
+    std::cout << str << std::endl;
+    std::cout << *stringPTR << std::endl;
+    std::cout << stringREF << std::endl;
+    
+    return 0;
 }
