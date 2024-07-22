@@ -6,9 +6,11 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:05:44 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/22 14:07:13 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/22 17:34:17 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #ifndef HARL_HPP
 #define HARL_HPP

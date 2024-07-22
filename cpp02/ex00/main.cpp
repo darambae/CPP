@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 15:11:09 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/22 17:34:55 by dabae            ###   ########.fr       */
+/*   Created: 2024/07/22 16:16:50 by dabae             #+#    #+#             */
+/*   Updated: 2024/07/22 16:48:46 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Fixed.hpp"
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
-
-#include <iostream>
-
-class Contact
+int main( void )
 {
-public:
-    int index;
-    std::string first_name;
-    std::string last_name;
-    std::string nickname;
-    std::string phone_number;
-    std::string darkest_secret;
-
-    Contact();
-    ~Contact();
-};
-
-#endif
+    Fixed a;
+    Fixed b( a );
+    Fixed c;
+    c = b;
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
+    
+    return 0;
+}

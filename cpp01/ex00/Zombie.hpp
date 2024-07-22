@@ -6,9 +6,11 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 07:26:44 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/19 11:28:49 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/22 17:34:48 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP

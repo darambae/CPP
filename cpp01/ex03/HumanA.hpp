@@ -6,9 +6,11 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 13:45:25 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/19 15:28:39 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/22 17:34:26 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #ifndef HUMANA_HPP
 #define HUMANA_HPP
