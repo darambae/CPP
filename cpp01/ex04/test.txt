@@ -1,0 +1,5 @@
+Hello, This is a sample text file.
+This file is used for testing a program that replaces a string with another string.
+Feel free to modify This file as needed.
+Good luck with your testing!
+
