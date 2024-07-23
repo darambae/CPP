@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:43:18 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/23 11:47:15 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/23 12:03:39 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ Fixed::Fixed() : _value(0)
 }
 
 Fixed::Fixed(const Fixed& f) : _value(f._value) {
-    std::cout << "Default constructor called" << std::endl; 
+    std::cout << "Copy constructor called" << std::endl; 
+    this->setRawBits(f.getRawBits());
 }
 
 Fixed& Fixed::operator=(const Fixed& f) {
-    _value = f._value;
+    std::cout << "Copy assignment operator calle" << std::endl;
+    this->setRawBits(f.getRawBits());
     return *this;
 }
 

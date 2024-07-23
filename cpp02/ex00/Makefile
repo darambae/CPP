@@ -6,17 +6,15 @@
 #    By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/22 16:16:53 by dabae             #+#    #+#              #
-#    Updated: 2024/07/23 10:19:59 by dabae            ###   ########.fr        #
+#    Updated: 2024/07/23 12:06:18 by dabae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = blabla
+NAME = a.out
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = Fixed.cpp \
-		main.cpp \
-# SRC = $(wildcard *.cpp)
+SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
