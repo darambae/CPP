@@ -6,10 +6,12 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:16:50 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/22 16:48:46 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/23 10:00:09 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string>
+#include <iostream>
 #include "Fixed.hpp"
 
 int main( void )
