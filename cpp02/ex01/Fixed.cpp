@@ -6,12 +6,14 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 14:26:26 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/23 17:00:55 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/24 10:24:49 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
+
+const int    Fixed::_fracbit = 8;
 
 Fixed::Fixed(): _value(0)
 {

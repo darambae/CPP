@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:16:48 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/23 11:43:29 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/24 10:25:00 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Fixed
 {
     private:
     int                 _value;
-    static const int    _fracbit = 8;
+    static const int    _fracbit;
 
     public:
     Fixed();
