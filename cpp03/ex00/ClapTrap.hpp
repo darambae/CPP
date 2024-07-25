@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:45 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/25 15:37:45 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/25 16:58:31 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class ClapTrap
 	private:
 
 		std::string _name;
-		int	_hitPoints = 10;
-		int _energyPoints = 10;
-		int _attackDamage = 0;
+		int	_hitPoints;
+		int _energyPoints;
+		int _attackDamage;
 	
 	public:
 
@@ -40,6 +40,6 @@ class ClapTrap
 		std::string& getName();
 };
 
-std::ostream& operator<<( std::ostream & o, ClapTrap const & i );
+//std::ostream& operator<<( std::ostream & o, ClapTrap const & i );
 
 #endif /* ******************************************************** CLAPTRAP_H */
