@@ -5,27 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/24 10:27:28 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/24 15:20:35 by dabae            ###   ########.fr       */
+/*   Created: 2024/07/24 15:23:02 by dabae             #+#    #+#             */
+/*   Updated: 2024/07/25 14:31:59 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Fixed.hpp"
+#include "Point.hpp"
 
 int main( void )
 {
-    Fixed   a;
-    //Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-    Fixed const b( Fixed( 5.05f ) / Fixed( 2 ) );
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max( a, b ) << std::endl;
-    std::cout << Fixed::min( a, b ) << std::endl;
+    Point   p1(2, 3);
+    Point   p2(5, 11);
+    Point   p3(12, 8);
+    Point   a(6, 7);
+    Point   b(10, 10);
+    Point   c(3, 4);
+    
+    std::cout << "1st test: " << bsp(p1, p2, p3, a) << std::endl; //true
+    std::cout << "2st test: " << bsp(p1, p2, p3, b) << std::endl; //false
+    std::cout << "3st test: " << bsp(p1, p2, p3, c) << std::endl; //true
 
     return 0;
 }
