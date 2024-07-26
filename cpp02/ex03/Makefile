@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/24 10:27:24 by dabae             #+#    #+#              #
-#    Updated: 2024/07/26 16:10:16 by dabae            ###   ########.fr        #
+#    Created: 2024/07/24 15:21:51 by dabae             #+#    #+#              #
+#    Updated: 2024/07/24 15:34:17 by dabae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed
+NAME = bsp
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 16:16:48 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/24 10:25:00 by dabae            ###   ########.fr       */
+/*   Created: 2024/07/25 15:00:32 by dabae             #+#    #+#             */
+/*   Updated: 2024/07/25 15:37:45 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+# include <iostream>
+# include <string>
 
-#include <iostream>
-#include <string>
-
-class Fixed
+class DiamondTrap
 {
-    private:
-    int                 _value;
-    static const int    _fracbit;
 
-    public:
-    Fixed();
-    Fixed(const Fixed& f);
-    Fixed&  operator=(const Fixed& f);
-    ~Fixed();
+	public:
 
-    int     getRawBits( void ) const;
-    void    setRawBits( int const raw );
+		DiamondTrap();
+		DiamondTrap( DiamondTrap const & src );
+		~DiamondTrap();
+
+		DiamondTrap &		operator=( DiamondTrap const & rhs );
+
+	private:
+
 };
 
+std::ostream &			operator<<( std::ostream & o, DiamondTrap const & i );
 
-#endif
+#endif /* ***************************************************** DIAMONDTRAP_H */

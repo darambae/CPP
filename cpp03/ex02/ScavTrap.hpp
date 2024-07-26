@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 16:16:48 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/24 10:25:00 by dabae            ###   ########.fr       */
+/*   Created: 2024/07/25 15:01:19 by dabae             #+#    #+#             */
+/*   Updated: 2024/07/25 15:37:45 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+# include <iostream>
+# include <string>
 
-#include <iostream>
-#include <string>
-
-class Fixed
+class ScavTrap
 {
-    private:
-    int                 _value;
-    static const int    _fracbit;
 
-    public:
-    Fixed();
-    Fixed(const Fixed& f);
-    Fixed&  operator=(const Fixed& f);
-    ~Fixed();
+	public:
 
-    int     getRawBits( void ) const;
-    void    setRawBits( int const raw );
+		ScavTrap();
+		ScavTrap( ScavTrap const & src );
+		~ScavTrap();
+
+		ScavTrap &		operator=( ScavTrap const & rhs );
+
+	private:
+
 };
 
+std::ostream &			operator<<( std::ostream & o, ScavTrap const & i );
 
-#endif
+#endif /* ******************************************************** SCAVTRAP_H */

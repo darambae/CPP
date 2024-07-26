@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 16:16:48 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/24 10:25:00 by dabae            ###   ########.fr       */
+/*   Created: 2024/07/25 14:57:45 by dabae             #+#    #+#             */
+/*   Updated: 2024/07/25 15:37:45 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+# include <iostream>
+# include <string>
 
-#include <iostream>
-#include <string>
-
-class Fixed
+class ClapTrap
 {
-    private:
-    int                 _value;
-    static const int    _fracbit;
 
-    public:
-    Fixed();
-    Fixed(const Fixed& f);
-    Fixed&  operator=(const Fixed& f);
-    ~Fixed();
+	public:
 
-    int     getRawBits( void ) const;
-    void    setRawBits( int const raw );
+		ClapTrap();
+		ClapTrap( ClapTrap const & src );
+		~ClapTrap();
+
+		ClapTrap &		operator=( ClapTrap const & rhs );
+
+	private:
+
 };
 
+std::ostream &			operator<<( std::ostream & o, ClapTrap const & i );
 
-#endif
+#endif /* ******************************************************** CLAPTRAP_H */

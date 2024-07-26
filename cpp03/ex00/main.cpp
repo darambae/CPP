@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 16:16:48 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/24 10:25:00 by dabae            ###   ########.fr       */
+/*   Created: 2024/07/25 14:49:17 by dabae             #+#    #+#             */
+/*   Updated: 2024/07/25 17:00:55 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "ClapTrap.hpp"
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
-
-#include <iostream>
-#include <string>
-
-class Fixed
+int main( void )
 {
-    private:
-    int                 _value;
-    static const int    _fracbit;
+    ClapTrap clap("Daram");
 
-    public:
-    Fixed();
-    Fixed(const Fixed& f);
-    Fixed&  operator=(const Fixed& f);
-    ~Fixed();
-
-    int     getRawBits( void ) const;
-    void    setRawBits( int const raw );
-};
-
-
-#endif
+    clap.attack("target");
+    clap.beRepaired(3);
+    clap.takeDamage(8);
+    return 0;
+}
