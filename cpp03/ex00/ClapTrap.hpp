@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:45 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/25 16:58:31 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/28 14:27:09 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ClapTrap
 		int _attackDamage;
 	
 	public:
-
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap( ClapTrap const & src );
 		~ClapTrap();
@@ -37,7 +37,8 @@ class ClapTrap
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 	
-		std::string& getName();
+		int getAttackDamage();
+		void setAttackDamage(unsigned int damage);
 };
 
 //std::ostream& operator<<( std::ostream & o, ClapTrap const & i );
