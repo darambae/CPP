@@ -6,9 +6,11 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:45 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/25 15:37:45 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/28 15:31:07 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
@@ -18,19 +20,35 @@
 
 class ClapTrap
 {
+	private:
 
+		std::string _name;
+		int	_hitPoints;
+		int _energyPoints;
+		int _attackDamage;
+	
 	public:
-
 		ClapTrap();
+		ClapTrap(std::string name);
 		ClapTrap( ClapTrap const & src );
 		~ClapTrap();
 
-		ClapTrap &		operator=( ClapTrap const & rhs );
+		ClapTrap& operator=( ClapTrap const & rhs );
 
-	private:
+		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
 
+		std::string getName() const;
+		void setName(std::string name);	
+		int getAttackDamage() const;
+		void setAttackDamage(unsigned int damage);
+		int	getHitPoints() const;
+		void setHitPoints(unsigned int hitPoints);
+		int	getEnergyPoints() const;
+		void setEnergyPoints(unsigned int energyPoints);
 };
 
-std::ostream &			operator<<( std::ostream & o, ClapTrap const & i );
+//std::ostream& operator<<( std::ostream & o, ClapTrap const & i );
 
 #endif /* ******************************************************** CLAPTRAP_H */

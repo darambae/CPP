@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:41 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/28 14:37:35 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/28 15:06:12 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,46 @@ ClapTrap&	ClapTrap::operator=( ClapTrap const & rhs )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+std::string ClapTrap::getName() const
+{
+	return _name;
+}
+
+void ClapTrap::setName(std::string name)
+{
+	_name = name;
+}
+
 void ClapTrap::setAttackDamage(unsigned int damage)
 {
 	_attackDamage = damage;
 }
 
-int ClapTrap::getAttackDamage()
+int ClapTrap::getAttackDamage() const
 {
 	return _attackDamage;
 }
+
+int ClapTrap::getHitPoints() const
+{
+	return _hitPoints;
+}
+
+void ClapTrap::setHitPoints(unsigned int hitPoints)
+{
+	_hitPoints = hitPoints;
+}
+
+int ClapTrap::getEnergyPoints() const
+{
+	return _energyPoints;
+}
+
+void ClapTrap::setEnergyPoints(unsigned int energyPoints)
+{
+	_energyPoints = energyPoints;
+}
+
 
 void ClapTrap::attack(const std::string& target)
 {

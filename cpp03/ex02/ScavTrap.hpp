@@ -6,31 +6,32 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:01:19 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/25 15:37:45 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/28 15:30:42 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
 
 # include <iostream>
 # include <string>
+# include "ClapTrap.hpp"
 
-class ScavTrap
+class ScavTrap : public ClapTrap
 {
-
 	public:
 
 		ScavTrap();
+		ScavTrap(std::string name);
 		ScavTrap( ScavTrap const & src );
 		~ScavTrap();
 
 		ScavTrap &		operator=( ScavTrap const & rhs );
 
-	private:
-
+		void guardGate();
+		void attack(const std::string& target);
 };
-
-std::ostream &			operator<<( std::ostream & o, ScavTrap const & i );
 
 #endif /* ******************************************************** SCAVTRAP_H */

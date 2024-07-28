@@ -6,9 +6,11 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:45 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/28 14:27:09 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/28 15:31:21 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
@@ -37,8 +39,14 @@ class ClapTrap
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 	
-		int getAttackDamage();
+		std::string getName() const;
+		void setName(std::string name);
+		int getAttackDamage() const;
 		void setAttackDamage(unsigned int damage);
+		int	getHitPoints() const;
+		void setHitPoints(unsigned int hitPoints);
+		int	getEnergyPoints() const;
+		void setEnergyPoints(unsigned int energyPoints);
 };
 
 //std::ostream& operator<<( std::ostream & o, ClapTrap const & i );
