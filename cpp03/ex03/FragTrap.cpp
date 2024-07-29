@@ -1,17 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/29 11:08:01 by dabae             #+#    #+#             */
+/*   Updated: 2024/07/29 17:29:03 by dabae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "FragTrap.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
+	std::cout << "A FragTrap is created" << std::endl;
+}
+
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
+{
+	setHitPoints(100);
+	setEnergyPoints(100);
+	setAttackDamage(30);
+	std::cout << "FragTrap " << name << " is created" << std::endl;
 }
 
 FragTrap::FragTrap( const FragTrap & src )
 {
+	*this = src;
 }
-
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -19,6 +40,7 @@ FragTrap::FragTrap( const FragTrap & src )
 
 FragTrap::~FragTrap()
 {
+	std::cout << "FragClap is destroyed" << std::endl;
 }
 
 
@@ -28,24 +50,25 @@ FragTrap::~FragTrap()
 
 FragTrap &				FragTrap::operator=( FragTrap const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+		ClapTrap::operator=(rhs);
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, FragTrap const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
+// std::ostream &			operator<<( std::ostream & o, FragTrap const & i )
+// {
+// 	//o << "Value = " << i.getValue();
+// 	return o;
+// }
 
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-
+void	FragTrap::highFivesGuys( void )
+{
+	std::cout << "Great job! Give me a High Five 🖐️" << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

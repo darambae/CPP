@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:49:17 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/28 15:29:48 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/29 15:23:09 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,20 @@
 
 int main( void )
 {
-    ClapTrap clap("Daram");
-    ScavTrap scav("Bae");
+    ClapTrap clap("KIM");
+    ScavTrap scav("BAE");
+    FragTrap frag("LEE");
 
+    frag.attack("target1");
     scav.guardGate();
-    scav.attack("target");
+    frag.takeDamage(20);
+    scav.attack("target2");
     clap.takeDamage(5);
-    clap.attack("target");
+    clap.attack("target3");
     scav.takeDamage(5);
     clap.beRepaired(3);
+    frag.beRepaired(1);
     scav.beRepaired(10);
+    frag.highFivesGuys();
     return 0;
 }

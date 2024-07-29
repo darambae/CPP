@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:41 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/28 15:05:53 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/29 17:34:59 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ ClapTrap::ClapTrap( const ClapTrap & src )
 */
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Deconstructor called" << std::endl;
+	std::cout << "ClapTrap is destroyed" << std::endl;
 }
 /*
 ** --------------------------------- OVERLOAD ---------------------------------

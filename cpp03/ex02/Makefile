@@ -6,11 +6,11 @@
 #    By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/25 14:58:36 by dabae             #+#    #+#              #
-#    Updated: 2024/07/25 15:37:45 by dabae            ###   ########.fr        #
+#    Updated: 2024/07/29 15:19:00 by dabae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 
+NAME = fragtrap 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = $(wildcard *.cpp)

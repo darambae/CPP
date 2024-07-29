@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:45 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/28 15:31:07 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/29 17:24:08 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class ClapTrap
 		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap( ClapTrap const & src );
-		~ClapTrap();
+		virtual ~ClapTrap();
 
 		ClapTrap& operator=( ClapTrap const & rhs );
 

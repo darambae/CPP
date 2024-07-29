@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:01:17 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/28 15:20:49 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/29 17:35:08 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ ScavTrap::ScavTrap( const ScavTrap & src ) : ClapTrap(src)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "Scavtrap deconstructor called" << std::endl;
+	std::cout << "Scavtrap is destroyed" << std::endl;
 }
 
 

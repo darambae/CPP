@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:00:29 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/25 15:37:45 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/29 17:34:03 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,20 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap(){}
+
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
+	_hitPoints = FragTrap::getHitPoints();
+	_energyPoints = ScavTrap::getEnergyPoints();
+	_attackDamage = FragTrap::getAttackDamage();
+	std::cout << "DiamondTrap " << name << " is created" << std::endl;
 }
 
 DiamondTrap::DiamondTrap( const DiamondTrap & src )
 {
+	*this = src;
+	std::cout << "DiamondTrap copy constructor called" << std::endl;
 }
 
 
@@ -31,6 +39,7 @@ DiamondTrap::DiamondTrap( const DiamondTrap & src )
 
 DiamondTrap::~DiamondTrap()
 {
+	std::cout << "DiamondTrap is destroyed" << std::endl;
 }
 
 
@@ -40,23 +49,31 @@ DiamondTrap::~DiamondTrap()
 
 DiamondTrap &				DiamondTrap::operator=( DiamondTrap const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		FragTrap::operator=(rhs);
+	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, DiamondTrap const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
+// std::ostream &			operator<<( std::ostream & o, DiamondTrap const & i )
+// {
+// 	//o << "Value = " << i.getValue();
+// 	return o;
+// }
 
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+void	DiamondTrap::whoAmI()
+{
+	std::cout << "My name is " << _name << " and my ClapTrap name is " << ClapTrap::getName() << std::endl;
+}
+void	DiamondTrap::attack(const std::string& target)
+{
+	FragTrap::attack(target);
+}
 
 
 /*

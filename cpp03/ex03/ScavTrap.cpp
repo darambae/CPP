@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:01:17 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/25 15:37:45 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/29 17:33:45 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,23 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap()
 {
+	std::cout << "ScavTrap is created" << std::endl;
 }
 
-ScavTrap::ScavTrap( const ScavTrap & src )
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
+	setAttackDamage(20);
+	setEnergyPoints(50);
+	setHitPoints(100);
+	std::cout << "ScavTrap " << name << " is created" << std::endl;
+}
+
+ScavTrap::ScavTrap( const ScavTrap & src ) : ClapTrap(src)
+{
+	*this = src;
+	std::cout << "copy constructor called" << std::endl;
 }
 
 
@@ -31,6 +42,7 @@ ScavTrap::ScavTrap( const ScavTrap & src )
 
 ScavTrap::~ScavTrap()
 {
+	std::cout << "Scavtrap is destroyed" << std::endl;
 }
 
 
@@ -40,28 +52,21 @@ ScavTrap::~ScavTrap()
 
 ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if (this != &rhs)
+		ClapTrap::operator=(rhs);
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, ScavTrap const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void	ScavTrap::guardGate()
+{
+	std::cout << "ScavTrap " << getName() << " have enterred in Gate keeper mode" << std::endl;
+}
 
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
-
-/* ************************************************************************** */
+void	ScavTrap::attack(const std::string& target)
+{
+	std::cout << "ScavTrap " << getName() << " attacks " << target << ", causing " << getAttackDamage() << " points of damage!" << std::endl;
+}

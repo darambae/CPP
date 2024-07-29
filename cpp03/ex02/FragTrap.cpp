@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:08:01 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/29 11:46:08 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/29 15:20:57 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	setHitPoints(100);
 	setEnergyPoints(100);
 	setAttackDamage(30);
-	std::cout << "FragTrap " << name << " is created";
+	std::cout << "FragTrap " << name << " is created" << std::endl;
 }
 
 FragTrap::FragTrap( const FragTrap & src )
@@ -55,11 +55,11 @@ FragTrap &				FragTrap::operator=( FragTrap const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, FragTrap const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
+// std::ostream &			operator<<( std::ostream & o, FragTrap const & i )
+// {
+// 	//o << "Value = " << i.getValue();
+// 	return o;
+// }
 
 
 /*

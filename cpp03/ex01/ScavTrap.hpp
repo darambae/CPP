@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:01:19 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/28 15:31:13 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/29 17:24:29 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 # include <string>
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	public:
 
 		ScavTrap();
 		ScavTrap(std::string name);
 		ScavTrap( ScavTrap const & src );
-		~ScavTrap();
+		virtual ~ScavTrap();
 
 		ScavTrap &		operator=( ScavTrap const & rhs );
 

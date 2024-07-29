@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 15:30:56 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/29 11:46:08 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/29 17:25:11 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include "ClapTrap.hpp"
 # include "ScavTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 
 	public:
@@ -28,12 +28,12 @@ class FragTrap : public ClapTrap
 		FragTrap();
 		FragTrap(std::string name);
 		FragTrap( FragTrap const & src );
-		~FragTrap();
+		virtual ~FragTrap();
 
 		FragTrap &		operator=( FragTrap const & rhs );
-		void	FragTrap::highFivesGuys( void );
+		void	highFivesGuys( void );
 };
 
-std::ostream &			operator<<( std::ostream & o, FragTrap const & i );
+//std::ostream &			operator<<( std::ostream & o, FragTrap const & i );
 
 #endif /* ******************************************************** FRAGTRAP_H */

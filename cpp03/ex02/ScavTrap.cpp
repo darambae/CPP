@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dabae <dabae@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:01:17 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/29 14:32:25 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/29 17:34:40 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ ScavTrap::ScavTrap( const ScavTrap & src ) : ClapTrap(src)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "Scavtrap deconstructor called" << std::endl;
+	std::cout << "Scavtrap is destroyed" << std::endl;
 }
 
 
