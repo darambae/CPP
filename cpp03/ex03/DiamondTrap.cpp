@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:00:29 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/29 17:34:03 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/29 17:44:44 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 DiamondTrap::DiamondTrap(){}
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name)
 {
 	_hitPoints = FragTrap::getHitPoints();
 	_energyPoints = ScavTrap::getEnergyPoints();
