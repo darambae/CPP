@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
+/*   By: dabae <dabae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:01:17 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/28 15:29:59 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/29 14:32:25 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ ScavTrap::~ScavTrap()
 
 ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 {
-	ClapTrap::operator=(rhs);
+	if (this != &rhs)
+		ClapTrap::operator=(rhs);
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:41 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/28 15:31:59 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/29 11:46:08 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,14 @@ ClapTrap::~ClapTrap()
 */
 ClapTrap&	ClapTrap::operator=( ClapTrap const & rhs )
 {
-	_name = rhs._name;
-	_hitPoints = rhs._hitPoints;
-	_energyPoints = rhs._energyPoints;
-	_attackDamage = rhs._attackDamage;
-	std::cout << "assignment constructor called" << std::endl;
+	if (this != &rhs)
+	{
+		_name = rhs._name;
+		_hitPoints = rhs._hitPoints;
+		_energyPoints = rhs._energyPoints;
+		_attackDamage = rhs._attackDamage;
+		std::cout << "assignment operator called" << std::endl;
+	}
 	return *this;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
+/*   By: dabae <dabae@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 14:14:46 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/18 11:12:35 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/29 14:34:53 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,16 @@ int setInfo(const std::string& question, std::string& input)
 void    PhoneBook::addContact()
 {
     int i = next_index % 8;
+    std::string answer;
 
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     setInfo("Please enter the first name: ", contact[i].first_name);
     setInfo("Please enter the last name: ", contact[i].last_name);
     setInfo("Please enter the nickname: ", contact[i].nickname);
     setInfo("Please enter the phone number: ", contact[i].phone_number);
-    setInfo("Please enter the darkest secret: ", contact[i].darkest_secret);
+    std::cout << "Please enter the darkest secret: ";
+    std::cin >> answer;
+    contact[i].setSecret(answer);
     contact[i].index = i + 1;
     next_index++;
 }
@@ -88,7 +91,7 @@ void    PhoneBook::printContact(const Contact& contact, bool details)
         std::cout << "Last name: " << contact.last_name << std::endl;
         std::cout << "Nickname: " << contact.nickname << std::endl;
         std::cout << "Phone number: " << contact.phone_number << std::endl;        
-        std::cout << "Darkest_secret: " << contact.darkest_secret << std::endl;
+        std::cout << "Darkest_secret: " << contact.getSecret() << std::endl;
     }
     else
     {

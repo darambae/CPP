@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 14:26:37 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/24 10:24:26 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/29 11:46:08 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ class Fixed
     float   toFloat( void ) const;
     int     toInt( void ) const;
 
-    friend std::ostream& operator<<(std::ostream& os, const Fixed& f);
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& f);
 
 
 #endif
