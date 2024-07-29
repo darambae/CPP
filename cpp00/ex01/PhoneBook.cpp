@@ -35,7 +35,7 @@ void    PhoneBook::addContact()
     setInfo("Please enter the nickname: ", contact[i].nickname);
     setInfo("Please enter the phone number: ", contact[i].phone_number);
     std::cout << "Please enter the darkest secret: ";
-    std::cin >> answer;
+    std::getline(std::cin, answer);
     contact[i].setSecret(answer);
     contact[i].index = i + 1;
     next_index++;
@@ -50,6 +50,11 @@ void    PhoneBook::searchContact()
     {
         if (contact[i].index != -1)
             printContact(contact[i], 0);
+    }
+    if (next_index == 0)
+    {
+        std::cout << "There is no contact saved yet. Please add a contact" << std::endl;
+        return ;
     }
     std::cout << "Please enter the index of the contact you're searching for" << std::endl;
     std::cin >> index;
