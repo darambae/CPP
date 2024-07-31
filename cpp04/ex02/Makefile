@@ -6,7 +6,7 @@
 #    By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/30 10:56:15 by dabae             #+#    #+#              #
-#    Updated: 2024/07/30 14:40:33 by dabae            ###   ########.fr        #
+#    Updated: 2024/07/30 15:39:27 by dabae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I.
 RM		=	rm -rf
 
 # Dir and file names
-NAME	=	abstract
+NAME	=	world_on_fire
 SRCS	=	$(wildcard *.cpp)
 OBJS	=	$(SRCS:.cpp=.o)
 INC		=	$(wildcard *.hpp)

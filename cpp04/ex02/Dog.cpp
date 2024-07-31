@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:18:08 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/30 14:18:03 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/31 09:47:57 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,15 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog()
+Dog::Dog() : AAnimal(), cerveau(new Brain())
 {
 	type = "Dog";
-	std::cout << "Dog constructor is created" << std::endl;
+	std::cout << "A Dog is created" << std::endl;
 }
 
-Dog::Dog( const Dog & src )
+Dog::Dog( const Dog & src ) : AAnimal(src), cerveau(new Brain(*src.cerveau))
 {
-	*this = src;
-	std::cout << "Dog copy constructor is created" << std::endl;
+	std::cout << "Dog copy constructor is called" << std::endl;
 }
 
 /*
@@ -34,6 +33,7 @@ Dog::Dog( const Dog & src )
 
 Dog::~Dog()
 {
+	delete cerveau;
 	std::cout << "Dog is destroyed" << std::endl;
 }
 
@@ -45,7 +45,11 @@ Dog::~Dog()
 Dog &				Dog::operator=( Dog const & rhs )
 {
 	if ( this != &rhs )
-		Dog::operator=(rhs);
+	{
+		delete cerveau;
+		cerveau = new Brain(*rhs.cerveau);
+		std::cout << "Dog assignment operator is called" << std::endl;
+	}
 	return *this;
 }
 
@@ -57,6 +61,10 @@ void	Dog::makeSound() const
 	std::cout << "Woofs Woofs!" << std::endl;
 }
 
+Brain*	Dog::getBrain()
+{
+	return cerveau;
+}
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

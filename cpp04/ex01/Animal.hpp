@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:13:57 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/30 14:05:37 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/31 09:55:20 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Animal
 
 		Animal &		operator=( Animal const & rhs );
 		virtual void 	makeSound() const;
-		std::string 	getType() const;
+		const std::string& 	getType() const;
 
 	protected:
 		std::string type;

@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/30 11:13:57 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/30 14:05:37 by dabae            ###   ########.fr       */
+/*   Created: 2024/07/30 14:46:20 by dabae             #+#    #+#             */
+/*   Updated: 2024/07/31 09:52:22 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
-#ifndef AANIMAL_HPP
-# define AANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 # include <string>
 
-class AAnimal
+class Brain
 {
 	public:
 
-		AAnimal();
-		AAnimal( AAnimal const & src );
-		virtual ~AAnimal();
+		Brain();
+		Brain( Brain const & src );
+		~Brain();
 
-		AAnimal &		operator=( AAnimal const & rhs );
-		virtual void 	makeSound() const = 0;
-		const std::string& 	getType() const;
-
-	protected:
-		std::string type;
-
+		Brain &		operator=( Brain const & rhs );
+		std::string ideas[100];
 };
 
-#endif /* ********************************************************** AANIMAL_H */
+
+#endif /* *********************************************************** BRAIN_H */

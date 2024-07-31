@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:13:53 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/30 14:23:37 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/31 09:31:20 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 AAnimal::AAnimal()
 {
 	type = "";
-	std::cout << "AAnimal constructor is created" << std::endl;
+	std::cout << "AAnimal is created" << std::endl;
 }
 
 AAnimal::AAnimal( const AAnimal & src )
 {
+	std::cout << "AAnimal copy constructor is called" << std::endl;
 	*this = src;
-	std::cout << "AAnimal copy constructor is created" << std::endl;
 }
 
 /*
@@ -55,7 +55,7 @@ AAnimal &	AAnimal::operator=( AAnimal const & rhs )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-std::string	AAnimal::getType() const
+const std::string&	AAnimal::getType() const
 {
 	return type;
 }

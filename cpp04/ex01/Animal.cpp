@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:13:53 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/31 09:31:20 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/31 09:55:02 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ Animal &	Animal::operator=( Animal const & rhs )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-std::string	Animal::getType() const
+const std::string&	Animal::getType() const
 {
 	return type;
 }

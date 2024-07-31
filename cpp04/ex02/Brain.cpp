@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/30 11:18:03 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/31 09:47:18 by dabae            ###   ########.fr       */
+/*   Created: 2024/07/30 14:46:22 by dabae             #+#    #+#             */
+/*   Updated: 2024/07/30 16:16:43 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Brain.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cat::Cat() : AAnimal(), cerveau(new Brain())
+Brain::Brain()
 {
-	type = "Cat";
-	std::cout << "A Cat is created" << std::endl;
+	for (int i = 0; i < 100; i++)
+		ideas[i] = "N/A";
+	std::cout << "Brain is created" << std::endl;
 }
 
-Cat::Cat( const Cat & src ) : AAnimal(src), cerveau(new Brain(*src.cerveau))
-{	
-	std::cout << "Cat copy constructor is called" << std::endl;
+Brain::Brain( const Brain & src )
+{
+	std::cout << "Brain copy constructor is called" << std::endl;
+	*this = src;
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Cat::~Cat()
+Brain::~Brain()
 {
-	delete cerveau;
-	std::cout << "Cat is destroyed" << std::endl;
+	std::cout << "Brain is destroyed" << std::endl;
 }
 
 
@@ -42,29 +43,23 @@ Cat::~Cat()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Cat &				Cat::operator=( Cat const & rhs )
+Brain &				Brain::operator=( Brain const & rhs )
 {
 	if ( this != &rhs )
 	{
-		delete cerveau;
-		cerveau = new Brain(*rhs.cerveau);
-		std::cout << "Cat assignment operator is called" << std::endl;
+		for (int i = 0; i < 100; i++)
+			ideas[i] = rhs.ideas[i];
 	}
 	return *this;
 }
 
 
+
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void	Cat::makeSound() const {
-	std::cout << "Meow Meow" << std::endl;
-}
 
-Brain*	Cat::getBrain()
-{
-	return cerveau;
-}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
