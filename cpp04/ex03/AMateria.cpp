@@ -1,70 +1,67 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.cpp                                         :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/30 11:13:53 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/31 09:31:20 by dabae            ###   ########.fr       */
+/*   Created: 2024/07/31 10:13:07 by dabae             #+#    #+#             */
+/*   Updated: 2024/08/01 10:16:19 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AAnimal.hpp"
-
+#include "AMateria.hpp"
+#include "Character.hpp"
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AAnimal::AAnimal()
+AMateria::AMateria()
 {
-	type = "";
-	std::cout << "AAnimal is created" << std::endl;
+	std::cout << "AMateria constructor is called\n";
 }
 
-AAnimal::AAnimal( const AAnimal & src )
+AMateria::AMateria( const AMateria & src )
 {
-	std::cout << "AAnimal copy constructor is called" << std::endl;
 	*this = src;
 }
 
+AMateria::AMateria(std::string const &_type)
+{
+	type = _type;
+} 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-AAnimal::~AAnimal()
+AMateria::~AMateria()
 {
-	std::cout << "AAnimal is destroyed" << std::endl;
+	std::cout << "Destructor of AMateria is called\n";
 }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-AAnimal &	AAnimal::operator=( AAnimal const & rhs )
+AMateria &				AMateria::operator=( AMateria const & rhs )
 {
 	if ( this != &rhs )
-	{
 		this->type = rhs.getType();
-		std::cout << "AAnimal assignment operator is called" << std::endl;
-	}	
 	return *this;
 }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-const std::string&	AAnimal::getType() const
+std::string const& AMateria::getType() const
 {
 	return type;
 }
 
-// void	AAnimal::makeSound() const
-// {
-// 	std::cout << "ROAR WOOF PURRRS HEE-HAWWW OINKOINK" << std::endl;
-// }
-
+void AMateria::use(ICharacter &target)
+{
+	std::cout << "AMateria use function is calling " << target.getName() << std::endl;
+}
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

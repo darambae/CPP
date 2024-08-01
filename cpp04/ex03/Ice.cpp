@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.cpp                                         :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/30 11:13:53 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/31 09:31:20 by dabae            ###   ########.fr       */
+/*   Created: 2024/07/31 10:21:17 by dabae             #+#    #+#             */
+/*   Updated: 2024/08/01 10:19:55 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AAnimal.hpp"
+#include "Ice.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AAnimal::AAnimal()
-{
-	type = "";
-	std::cout << "AAnimal is created" << std::endl;
-}
+Ice::Ice() : AMateria("ice") {};
 
-AAnimal::AAnimal( const AAnimal & src )
+Ice::Ice( const Ice & src ) : AMateria("ice") 
 {
-	std::cout << "AAnimal copy constructor is called" << std::endl;
 	*this = src;
 }
 
@@ -32,39 +27,36 @@ AAnimal::AAnimal( const AAnimal & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-AAnimal::~AAnimal()
+Ice::~Ice()
 {
-	std::cout << "AAnimal is destroyed" << std::endl;
+	std::cout << "Ice is destroyed\n";
 }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-AAnimal &	AAnimal::operator=( AAnimal const & rhs )
+Ice &				Ice::operator=( Ice const & rhs )
 {
 	if ( this != &rhs )
 	{
 		this->type = rhs.getType();
-		std::cout << "AAnimal assignment operator is called" << std::endl;
-	}	
+	}
 	return *this;
 }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-const std::string&	AAnimal::getType() const
+Ice* Ice::clone() const
 {
-	return type;
+	return (new Ice(*this));
 }
 
-// void	AAnimal::makeSound() const
-// {
-// 	std::cout << "ROAR WOOF PURRRS HEE-HAWWW OINKOINK" << std::endl;
-// }
-
+void	Ice::use(ICharacter& target)
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " */n";
+}
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

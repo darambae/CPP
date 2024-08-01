@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:58:54 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/31 09:48:11 by dabae            ###   ########.fr       */
+/*   Updated: 2024/07/31 10:00:14 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 int main()
 {
     //create an array of animal and assign dog and cat classes
-    AAnimal* animal[10];
-    
+    AAnimal *animal[10];
+
     for (int i = 0; i < 5; i++)
     {
         animal[i] = new Dog();

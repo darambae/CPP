@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.cpp                                         :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/30 11:13:53 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/31 09:31:20 by dabae            ###   ########.fr       */
+/*   Created: 2024/07/31 10:21:11 by dabae             #+#    #+#             */
+/*   Updated: 2024/08/01 10:18:23 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AAnimal.hpp"
+#include "Cure.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AAnimal::AAnimal()
-{
-	type = "";
-	std::cout << "AAnimal is created" << std::endl;
-}
+Cure::Cure() : AMateria("cure") {};
 
-AAnimal::AAnimal( const AAnimal & src )
+Cure::Cure( const Cure & src ) : AMateria("cure")
 {
-	std::cout << "AAnimal copy constructor is called" << std::endl;
 	*this = src;
 }
 
@@ -32,22 +27,21 @@ AAnimal::AAnimal( const AAnimal & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-AAnimal::~AAnimal()
+Cure::~Cure()
 {
-	std::cout << "AAnimal is destroyed" << std::endl;
+	std::cout << "Cure is destroyed\n";
 }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-AAnimal &	AAnimal::operator=( AAnimal const & rhs )
+Cure &				Cure::operator=( Cure const & rhs )
 {
 	if ( this != &rhs )
 	{
 		this->type = rhs.getType();
-		std::cout << "AAnimal assignment operator is called" << std::endl;
-	}	
+	}
 	return *this;
 }
 
@@ -55,15 +49,15 @@ AAnimal &	AAnimal::operator=( AAnimal const & rhs )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-const std::string&	AAnimal::getType() const
+Cure* Cure::clone() const
 {
-	return type;
+	return (new Cure(*this));
 }
 
-// void	AAnimal::makeSound() const
-// {
-// 	std::cout << "ROAR WOOF PURRRS HEE-HAWWW OINKOINK" << std::endl;
-// }
+void	Cure::use(ICharacter& target)
+{
+	std::cout << "* heals " << target.getName() << "’s wounds */n";
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
