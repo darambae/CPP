@@ -41,17 +41,29 @@ void    Harl::complain(std::string level)
     
     switch (i)
     {
-    case 0:
-        std::cout << msg[0] << std::endl;
-    case 1:
-        std::cout << msg[1] << std::endl;
-    case 2:
-        std::cout << msg[2] << std::endl;
-    case 3:
-        std::cout << msg[3] << std::endl;
-        break;
-    default:
-        std::cout << "[ Probably complaining about insignificant problems ]\n";
-        break;
+        case 0:
+            printComplain(i);    
+            break;
+        case 1:
+            printComplain(i);    
+            break;
+        case 2:
+            printComplain(i);    
+            break;
+        case 3:
+            printComplain(i);    
+            break;
+        default:
+            std::cout << "[ Probably complaining about insignificant problems ]\n";
+            break;
+    }
+}
+
+void    Harl::printComplain(int i)
+{
+    while (i < 4)
+    {
+        std::cout << msg[i] << std::endl;
+        i++;
     }
 }

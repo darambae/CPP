@@ -21,13 +21,15 @@
 class Harl
 {
     private:
-    int getLevelIndex(const std::string& level);
+    int     getLevelIndex(const std::string& level);
 
     static const std::string levels[4];
     static const std::string msg[4];
     
 public:
-    void complain( std::string level );
+    void    complain( std::string level );
+    void    printComplain(int i);
+
 };
 
 #endif

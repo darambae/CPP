@@ -18,7 +18,8 @@ int main(int argc, char **argv)
     
     if (argc != 2)
     {
-        std::cout << "Too many arguments!\n";
+        std::cout << "Incorrect number of arguments!\n";
+        std::cout << "USAGE: ./harlFilter [DEBUG / INFO / WARNING / ERROR]\n";
         return 1;
     }
     harl.complain(argv[1]);
