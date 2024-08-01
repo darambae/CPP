@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:27:25 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/01 10:39:17 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/01 10:44:34 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ Character::Character()
 
 Character::Character(std::string _name)
 {
-	std::cout << "Character " << name << " is created\n";
+	for (int i = 0; i < 4; i++)
+		slots[i] = NULL;
 	name = _name;
+	std::cout << "Character " << name << " is created\n";
 }
 
 Character::Character( const Character & src )
