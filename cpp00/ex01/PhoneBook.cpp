@@ -16,16 +16,15 @@ PhoneBook::PhoneBook() : next_index(0) {};
 PhoneBook::~PhoneBook() {};
 
 
-int setInfo(const std::string& question, std::string& input)
+std::string& setInfo(std::string question)
 {
     std::string answer;
 
     std::cout << question;
     std::getline(std::cin, answer);
     if (answer.empty())
-        return setInfo(question, input);
-    input = answer;
-    return 0;
+        return setInfo(question);
+    return answer;
 }
 
 void    PhoneBook::addContact()
@@ -34,13 +33,11 @@ void    PhoneBook::addContact()
     std::string answer;
 
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    setInfo("Please enter the first name: ", contact[i].first_name);
-    setInfo("Please enter the last name: ", contact[i].last_name);
-    setInfo("Please enter the nickname: ", contact[i].nickname);
-    setInfo("Please enter the phone number: ", contact[i].phone_number);
-    std::cout << "Please enter the darkest secret: ";
-    std::getline(std::cin, answer);
-    contact[i].setSecret(answer);
+    contact[i].setFirstName(setInfo("Please enter the first name: "));
+    contact[i].setLastName(setInfo("Please enter the last name: "));
+    contact[i].setNickName(setInfo("Please enter the nickname: "));
+    contact[i].setPhoneNumber(setInfo("Please enter the phone number: "));
+    contact[i].setSecret(setInfo("Please enter the darkest secret: "));
     contact[i].index = i + 1;
     next_index++;
 }
@@ -96,20 +93,20 @@ void    PhoneBook::printContact(const Contact& contact, bool details)
 {
     if (details)
     {
-        std::cout << "First name: " << contact.first_name << std::endl;
-        std::cout << "Last name: " << contact.last_name << std::endl;
-        std::cout << "Nickname: " << contact.nickname << std::endl;
-        std::cout << "Phone number: " << contact.phone_number << std::endl;        
+        std::cout << "First name: " << contact.getFirstName() << std::endl;
+        std::cout << "Last name: " << contact.getLastName() << std::endl;
+        std::cout << "Nickname: " << contact.getNickName() << std::endl;
+        std::cout << "Phone number: " << contact.getPhoneNumber() << std::endl;        
         std::cout << "Darkest_secret: " << contact.getSecret() << std::endl;
     }
     else
     {
         std::cout << std::setw(10) << contact.index << "|";
-        printWithDot(contact.first_name, details);
+        printWithDot(contact.getFirstName(), details);
         std::cout << "|";
-        printWithDot(contact.last_name, details);
+        printWithDot(contact.getLastName(), details);
         std::cout << "|";
-        printWithDot(contact.nickname, details);
+        printWithDot(contact.getNickName(), details);
         std::cout << std::endl;
     }
     
