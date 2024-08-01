@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:06:47 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/22 17:34:59 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/01 11:13:09 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ public:
     int next_index;
     Contact contact[8];
     
-    PhoneBook() : next_index(0) {};
-    ~PhoneBook() {};
+    PhoneBook();
+    ~PhoneBook();
     
     void addContact();
     void searchContact();

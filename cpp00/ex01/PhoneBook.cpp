@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dabae <dabae@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 14:14:46 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/29 14:34:53 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/01 11:12:54 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+PhoneBook::PhoneBook() : next_index(0) {};
+PhoneBook::~PhoneBook() {};
+
 
 int setInfo(const std::string& question, std::string& input)
 {
