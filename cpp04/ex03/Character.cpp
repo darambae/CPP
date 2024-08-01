@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:27:25 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/01 10:04:03 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/01 10:39:17 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 Character::Character()
 {
 	std::cout << "A Character is created\n";
+	for (int i = 0; i < 4; i++)
+		slots[i] = NULL;
 }
 
 Character::Character(std::string _name)
@@ -73,9 +75,9 @@ std::string const& Character::getName() const
 void	Character::equip(AMateria *m)
 {
 	int i = 0;
-	while (slots[i])
+	while (slots[i] && i < 4)
 		i++;
-	if (i < 4)
+	if (!slots[i])
 		slots[i] = m;
 	else
 		std::cout << "Slot is already full\n";

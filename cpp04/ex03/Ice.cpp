@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:21:17 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/01 10:19:55 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/01 10:40:24 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ Ice* Ice::clone() const
 
 void	Ice::use(ICharacter& target)
 {
-	std::cout << "* shoots an ice bolt at " << target.getName() << " */n";
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
 }
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
