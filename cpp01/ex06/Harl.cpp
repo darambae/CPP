@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 14:14:02 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/22 15:04:04 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/02 16:00:04 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,13 @@ int Harl::getLevelIndex(const std::string& level)
 void    Harl::complain(std::string level)
 {
     int i = getLevelIndex(level);
-    
-    switch (i)
+    if (i == -1)
     {
-        case 0:
-            printComplain(i);    
-            break;
-        case 1:
-            printComplain(i);    
-            break;
-        case 2:
-            printComplain(i);    
-            break;
-        case 3:
-            printComplain(i);    
-            break;
-        default:
-            std::cout << "[ Probably complaining about insignificant problems ]\n";
-            break;
+        std::cout << "[ Probably complaining about insignificant problems ]\n";
+        return;
     }
+    else
+        printComplain(i);
 }
 
 void    Harl::printComplain(int i)
