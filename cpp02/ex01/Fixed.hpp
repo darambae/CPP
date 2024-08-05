@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 14:26:37 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/29 11:46:08 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/05 12:52:58 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #define FIXED_HPP
 
 #include <iostream>
-#include <string>
 #include <cmath>
 
 class Fixed

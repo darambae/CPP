@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:28:13 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/29 11:50:52 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/05 14:28:16 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,37 +17,37 @@ const int    Fixed::_fracbit = 8;
 
 Fixed::Fixed(): _value(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    //std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int num)
 {
-    std::cout << "Int constructor called" << std::endl;
+    //std::cout << "Int constructor called" << std::endl;
     _value = num << _fracbit;
 }
 
 Fixed::Fixed(const float num)
 {
-    std::cout << "Float constructor called" << std::endl;
+    //std::cout << "Float constructor called" << std::endl;
     _value = static_cast<int>(roundf(num * (1 << _fracbit)));
 }
 
 Fixed::Fixed(const Fixed& f)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    //std::cout << "Copy constructor called" << std::endl;
     *this = f;
 }
 
 Fixed& Fixed::operator=(const Fixed& f)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    //std::cout << "Copy assignment operator called" << std::endl;
     this->setRawBits(f.getRawBits());
     return *this;
 }
 
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits( void ) const
@@ -140,13 +140,13 @@ Fixed     Fixed::operator/(const Fixed& f) const
     tmp._value = (_value << _fracbit) / f._value;
     return tmp;
 }
-
+//pre-increment(++a)
 Fixed&     Fixed::operator++()
 {
     ++_value;
     return *this;
 }
-
+//post-increment(a++)
 Fixed     Fixed::operator++(int)
 {
     Fixed   tmp = *this;
@@ -154,13 +154,13 @@ Fixed     Fixed::operator++(int)
     ++_value;
     return tmp;
 }
-
+//pre-decrement(--a)
 Fixed&     Fixed::operator--()
 {
     --_value;
     return *this;
 }
-
+//post-decrement(a--)
 Fixed     Fixed::operator--(int)
 {
     Fixed   tmp = *this;
