@@ -25,7 +25,7 @@ Form::Form( std::string const & name, int gradeToSign, int gradeToExecute ) : _n
 		throw Form::GradeTooLowException();
 }
 
-Form::Form( const Form & src ) : _name(src.getName()), _signed(src.getSigned()), _gradeToSign(src.getGradeToSign()), _gradeToExecute(src.getGradeToExecute())
+Form::Form( const Form & src ) : Bureaucrat(src), _name(src.getName()), _signed(src.getSigned()), _gradeToSign(src.getGradeToSign()), _gradeToExecute(src.getGradeToExecute())
 {
 	*this = src;
 }
