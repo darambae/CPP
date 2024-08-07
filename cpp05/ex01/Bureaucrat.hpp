@@ -6,17 +6,21 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:32:40 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/05 15:55:13 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/07 17:34:13 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
 # include <iostream>
 # include <string>
-
+# include "Form.hpp"
 /*Exception class (try, catch, throw)*/
+
+class Form;
 
 class Bureaucrat
 {
@@ -40,7 +44,7 @@ class Bureaucrat
 
 		void incrementGrade();
 		void decrementGrade();
-		void signForm(bool sign);
+		void signForm(Form & form);
 		
 		class GradeTooHighException : public std::exception
 		{

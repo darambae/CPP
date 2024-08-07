@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:32:37 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/07 13:04:21 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/07 16:53:44 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,22 +104,36 @@ void	Bureaucrat::decrementGrade()
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "'s grade is too high";
+	return "grade is too high";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "'s grade is too low";
+	return "grade is too low";
 }
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signAForm(AForm &form)
 {
-	if (form.getSigned())
-		std::cout << this->getName() << " cannot sign " << form.getName() << " because it's already signed" << std::endl;
-	else if (this->getGrade() > form.getGradeToSign())
-		std::cout << this->getName() << " cannot sign " << form.getName() << " because his grade is too low" << std::endl;
+	if (this->getGrade() > form.getGradeToSign())
+		throw AForm::GradeTooLowException();
+	else if (form.getSigned())
+		throw AForm::FormAlreadySignedException();
+	// if (form.getSigned())
+	// 	std::cout << this->getName() << " cannot sign " << form.getName() << " because it's already signed" << std::endl;
+	// else if (this->getGrade() > form.getGradeToSign())
+	// 	std::cout << this->getName() << " cannot sign " << form.getName() << " because his grade is too low" << std::endl;
 	else
 		form.beSigned(*this);
+}
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	if (form.getSigned() == false)
+		throw AForm::FormNotSignedException();
+	if (form.getGradeToExecute() < this->getGrade())
+		throw Bureaucrat::GradeTooLowException();
+	form.execute(*this);
+	std::cout << this->getName() << " executed " << form.getName() << std::endl;
 }
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
