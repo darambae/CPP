@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:08:46 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/20 16:19:28 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/20 17:36:40 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-PmergeMe::PmergeMe()
-{
-}
+PmergeMe::PmergeMe(){}
 
 PmergeMe::PmergeMe( const PmergeMe & src )
 {
@@ -30,9 +28,7 @@ PmergeMe::PmergeMe( const PmergeMe & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-PmergeMe::~PmergeMe()
-{
-}
+PmergeMe::~PmergeMe(){}
 
 
 /*
@@ -46,8 +42,6 @@ PmergeMe &				PmergeMe::operator=( PmergeMe const & rhs )
 }
 
 
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
@@ -57,6 +51,33 @@ PmergeMe &				PmergeMe::operator=( PmergeMe const & rhs )
 3. Insert Smaller Elements: Insert the smaller elements into the sorted list of larger elements.
 4. Handle Unpaired Elements: If there’s an unpaired element, insert it into the correct position.
 */
+
+bool	isDuplicate(std::deque<int> &d)
+{
+	for (size_t i = 0; i < d.size() - 1; i++)
+	{
+		if (d[i] == d[i + 1])
+			return 1;
+	}
+	return 0;
+}
+
+bool	isSorted(std::deque<int> &d)
+{
+	for (size_t i = 0; i < d.size() - 1; i++)
+	{
+		if (d[i] > d[i + 1])
+			return 0;
+	}
+	return 1;
+}
+
+void	printDeque(std::deque<int> &d)
+{
+	for (size_t i = 0; i < d.size(); i++)
+		std::cout << d[i] << " ";
+	std::cout << std::endl;
+}
 
 //Check if the input is positive integers and has enough arguments
 bool	PmergeMe::createContainers(int ac, const char **av)
@@ -90,9 +111,12 @@ bool	PmergeMe::createContainers(int ac, const char **av)
 		}
 	}
 	std::cout << "Before sorting: ";
-	for (size_t i = 0; i < _deque.size(); i++)
-		std::cout << _deque[i] << " ";
-	std::cout << std::endl;
+	printDeque(_deque);
+	if (isSorted(_deque))
+	{
+		std::cout << "Already sorted" << std::endl;
+		return 0;
+	}
 	return 1;
 }
 void	PmergeMe::sortVector(std::vector<int> &v)
@@ -108,15 +132,6 @@ void	PmergeMe::sortVector(std::vector<int> &v)
 	std::merge(left.begin(), left.end(), right.begin(), right.end(), v.begin());
 }
 
-bool	isDuplicate(std::deque<int> &d)
-{
-	for (size_t i = 0; i < d.size(); i++)
-	{
-		if (d[i] == d[i + 1])
-			return 1;
-	}
-	return 0;
-}
 
 void	PmergeMe::sortDeque(std::deque<int> &d)
 {
@@ -145,9 +160,9 @@ void	PmergeMe::run(int ac, const char **av)
 			std::cout << "Error: duplicate numbers" << std::endl;
 			return ;
 		}
+		std::cout << std::endl;
 		std::cout << "After sorting using deque: ";
-		for (size_t i = 0; i < _deque.size(); i++)
-			std::cout << _deque[i] << " ";
+		printDeque(_deque);
 		std::cout << std::endl;
 		std::cout << "Time taken to sort numbers using deque: " << static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000 << "ms" << std::endl;
 		start = clock();
@@ -158,10 +173,6 @@ void	PmergeMe::run(int ac, const char **av)
 		// 	std::cout << _vector[i] << " ";
 		// std::cout << std::endl;
 		std::cout << "Time taken to sort numbers using vector: " << static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000 << "ms" << std::endl;
-	}
-	else
-	{
-		std::cout << "Failed to create a container" << std::endl;
 	}
 }
 
