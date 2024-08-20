@@ -6,7 +6,7 @@
 #    By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/15 10:58:14 by dabae             #+#    #+#              #
-#    Updated: 2024/08/15 10:58:22 by dabae            ###   ########.fr        #
+#    Updated: 2024/08/19 14:50:35 by dabae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ RM		=	rm -rf
 
 # Dir and file names
 NAME	=	RPN
-SRCS	=	main.cpp
+SRCS	=	$(wildcard *.cpp)
 OBJS	=	$(SRCS:.cpp=.o)
 INC		=	$(wildcard *.hpp)
 

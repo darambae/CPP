@@ -6,7 +6,7 @@
 #    By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/15 11:07:11 by dabae             #+#    #+#              #
-#    Updated: 2024/08/15 11:07:25 by dabae            ###   ########.fr        #
+#    Updated: 2024/08/20 15:47:59 by dabae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,19 +14,8 @@
 #                                  GENERICS                                    #
 #------------------------------------------------------------------------------#
 
-# Special variables
-DEFAULT_GOAL: all
-.DELETE_ON_ERROR: $(NAME)
+
 .PHONY: all bonus clean fclean re
-
-# Hide calls
-export VERBOSE	=	TRUE
-ifeq ($(VERBOSE),TRUE)
-	HIDE =
-else
-	HIDE = @
-endif
-
 
 #------------------------------------------------------------------------------#
 #                                VARIABLES                                     #
@@ -39,7 +28,7 @@ RM		=	rm -rf
 
 # Dir and file names
 NAME	=	PmergeMe
-SRCS	=	main.cpp
+SRCS	=	$(wildcard *.cpp)
 OBJS	=	$(SRCS:.cpp=.o)
 INC		=	$(wildcard *.hpp)
 

@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:58:45 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/15 11:39:40 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/19 14:49:36 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,11 @@ class RPN
 		~RPN();
 
 		RPN &		operator=( RPN const & rhs );
+		void	run(const std::string& input);
+		float	calculate(float n1, float n2, char operat);
 
 	private:
-
+		std::stack<float> _input;
 };
 
 std::ostream &			operator<<( std::ostream & o, RPN const & i );

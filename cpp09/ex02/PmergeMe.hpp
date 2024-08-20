@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:08:49 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/15 11:45:50 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/20 16:00:30 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@
 # include <string>
 # include <deque>
 # include <vector>
+# include <algorithm>
+# include <ctime>
 
 //Using std::deque & std::vector
 /*Characteristics:
 1. std::deque:
 - Double-ended queue.
-- std::vector: Dynamic array.
 - std::deque has O(1) complexity for insertion/deletion at the beginning/end.
 2. std::vector:
+- Dynamic array.
 - Contiguous memory.
 - Well supported by c++ standard library.
 3. Common characteristics:
@@ -46,10 +48,24 @@ class PmergeMe
 
 		PmergeMe &		operator=( PmergeMe const & rhs );
 
+		void	run(int ac, const char **av);
+		bool	createContainers(int ac, const char **av);
+		void	sortVector(std::vector<int> &v);
+		void	sortDeque(std::deque<int> &d);
+		class InvalidInputException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return "Invalid input";
+				}
+		};
+	
 	private:
-
+		std::deque<int>		_deque;
+		std::vector<int>	_vector;
 };
 
-std::ostream &			operator<<( std::ostream & o, PmergeMe const & i );
 
 #endif /* ******************************************************** PMERGEME_H */
+
