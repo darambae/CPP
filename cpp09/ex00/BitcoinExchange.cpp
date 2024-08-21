@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:49:59 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/19 11:38:10 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/20 17:40:23 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,10 +171,5 @@ std::string	BitcoinExchange::findClosestDate(const std::string& date)
 		closestDate = _data.begin()->first;
 	return closestDate;
 }
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
 
 /* ************************************************************************** */

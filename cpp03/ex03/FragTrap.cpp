@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:08:01 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/29 17:29:03 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/20 17:50:10 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,6 @@ FragTrap &				FragTrap::operator=( FragTrap const & rhs )
 	return *this;
 }
 
-// std::ostream &			operator<<( std::ostream & o, FragTrap const & i )
-// {
-// 	//o << "Value = " << i.getValue();
-// 	return o;
-// }
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
@@ -70,9 +63,6 @@ void	FragTrap::highFivesGuys( void )
 	std::cout << "Great job! Give me a High Five 🖐️" << std::endl;
 }
 
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
 
 
 /* ************************************************************************** */

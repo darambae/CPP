@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:45 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/29 16:26:08 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/20 17:45:26 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,5 @@ class ClapTrap
 		int	getEnergyPoints() const;
 		void setEnergyPoints(unsigned int energyPoints);
 };
-
-//std::ostream& operator<<( std::ostream & o, ClapTrap const & i );
 
 #endif /* ******************************************************** CLAPTRAP_H */

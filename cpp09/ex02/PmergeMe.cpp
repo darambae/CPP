@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:08:46 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/20 17:36:40 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/20 17:39:13 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,12 +175,3 @@ void	PmergeMe::run(int ac, const char **av)
 		std::cout << "Time taken to sort numbers using vector: " << static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000 << "ms" << std::endl;
 	}
 }
-
-
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
-
-/* ************************************************************************** */

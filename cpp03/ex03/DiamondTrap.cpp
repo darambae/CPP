@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:00:29 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/29 17:44:44 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/20 17:50:31 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,6 @@ DiamondTrap &				DiamondTrap::operator=( DiamondTrap const & rhs )
 	}
 	return *this;
 }
-
-// std::ostream &			operator<<( std::ostream & o, DiamondTrap const & i )
-// {
-// 	//o << "Value = " << i.getValue();
-// 	return o;
-// }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------

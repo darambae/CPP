@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:58:45 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/19 14:49:36 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/20 17:39:31 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,5 @@ class RPN
 		std::stack<float> _input;
 };
 
-std::ostream &			operator<<( std::ostream & o, RPN const & i );
 
 #endif /* ************************************************************* RPN_H */

@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 15:23:05 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/25 14:29:42 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/20 17:44:59 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ Point& Point::operator=(const Point& p)
 //destructor
 Point::~Point(){}
 
+//getters
 Fixed Point::getX(void) const
 {
     return x;
