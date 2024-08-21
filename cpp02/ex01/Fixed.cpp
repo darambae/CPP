@@ -28,19 +28,21 @@ Fixed::Fixed(const int num)
 Fixed::Fixed(const float num)
 {
     std::cout << "Float constructor called" << std::endl;
-    _value = roundf(num * (1 << _fracbit));
+    _value = roundf(num * (1 << _fracbit)); 
+    //since it can't bit shift a float, (num << _fracbit) doesn't work. But it is the same as roundf(num * 256)
 }
 
 Fixed::Fixed(const Fixed& f)
 {
     std::cout << "Copy constructor called" << std::endl;
-    *this = f;
+    this->setRawBits(f.getRawBits());
 }
 
 Fixed& Fixed::operator=(const Fixed& f)
 {
     std::cout << "Copy assignment operator called" << std::endl;
-    this->setRawBits(f.getRawBits());
+    if (this != &f)
+        this->setRawBits(f.getRawBits());
     return *this;
 }
 

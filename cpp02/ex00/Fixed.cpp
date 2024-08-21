@@ -20,14 +20,18 @@ Fixed::Fixed() : _value(0)
     std::cout << "Default constructor called" << std::endl;
 }
 
+/*Copy constructor : creates a new object based on an existing one.(initializing new objects) 
+Self-assignment is not required since it's called when creating a new object.
+*/
 Fixed::Fixed(const Fixed& f) {
     std::cout << "Copy constructor called" << std::endl;
     this->setRawBits(f.getRawBits());
 }
 
+/*Copy assignment operator : assigns the value of one exising object to another existing object.*/
 Fixed& Fixed::operator=(const Fixed& f) {
     std::cout << "Copy assignment operator called" << std::endl;
-    if (this != &f)
+    if (this != &f) //Self-assignment check : is necessary to handle cases where the object might be assigned to itself. 
         this->setRawBits(f.getRawBits());
     return *this;
 }

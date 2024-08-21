@@ -37,7 +37,6 @@ class Fixed
     float   toFloat( void ) const;
     int     toInt( void ) const;
 
-    friend std::ostream& operator<<(std::ostream& os, const Fixed& f);
 
     Fixed&  operator=(const Fixed& f);
     bool    operator<=(const Fixed& f) const;
@@ -63,6 +62,8 @@ class Fixed
     static const Fixed&   max(const Fixed& a, const Fixed& b);
 
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& f);
 
 
 #endif

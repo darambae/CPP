@@ -30,6 +30,7 @@ class Fixed
     Fixed(const int num);
     Fixed(const float num);
     Fixed(const Fixed& f);
+    Fixed&  operator=(const Fixed& f);
     ~Fixed();
 
     int     getRawBits( void ) const;
@@ -37,7 +38,6 @@ class Fixed
     float   toFloat( void ) const;
     int     toInt( void ) const;
 
-    Fixed&  operator=(const Fixed& f);
     bool    operator<=(const Fixed& f) const;
     bool    operator>=(const Fixed& f) const;
     bool    operator>(const Fixed& f) const;
