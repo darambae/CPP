@@ -15,8 +15,11 @@
 int main( void )
 {
     ClapTrap clap("Daram");
+    std::cout << clap;
     clap.takeDamage(5);
     clap.attack("target");
+    std::cout << clap;
     clap.beRepaired(3);
+    std::cout << clap;
     return 0;
 }

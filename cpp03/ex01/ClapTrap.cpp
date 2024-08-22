@@ -42,12 +42,23 @@ ClapTrap::~ClapTrap()
 */
 ClapTrap&	ClapTrap::operator=( ClapTrap const & rhs )
 {
-	_name = rhs._name;
-	_hitPoints = rhs._hitPoints;
-	_energyPoints = rhs._energyPoints;
-	_attackDamage = rhs._attackDamage;
+	if (this != &rhs)
+	{
+		_name = rhs._name;
+		_hitPoints = rhs._hitPoints;
+		_energyPoints = rhs._energyPoints;
+		_attackDamage = rhs._attackDamage;
+	}
 	std::cout << "assignment constructor called" << std::endl;
 	return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const ClapTrap& c)
+{
+	os << c.getName() << "'s energy point is " << c.getEnergyPoints() << std::endl;
+	os << c.getName() << "'s attack damage is " << c.getAttackDamage() << std::endl;
+	os << c.getName() << "'s hit point is " << c.getHitPoints() << std::endl;
+	return os;
 }
 
 /*
@@ -56,13 +67,13 @@ ClapTrap&	ClapTrap::operator=( ClapTrap const & rhs )
 
 void ClapTrap::attack(const std::string& target)
 {
-	if (_energyPoints > 0 && _hitPoints > 0)
+	if (_energyPoints > 0)
 	{
 		_energyPoints--;
 		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
 	}
 	else
-		std::cout << "ClapTrap doesn't have enough energy / hit points!" << std::endl;
+		std::cout << "ClapTrap doesn't have enough energy or hit points to attack!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -72,21 +83,23 @@ void ClapTrap::takeDamage(unsigned int amount)
 		std::cout << "ClapTrap " << _name << " is already dead!" << std::endl;
 		return ;
 	}
-	setAttackDamage(amount);
-	_hitPoints -= amount;
+	else if (amount >= static_cast<unsigned int>(_hitPoints))
+		_hitPoints = 0;
+	else
+		_hitPoints -= amount;
 	std::cout << _name << " takes damages of " << amount << ", leaving " << _hitPoints << " points of hit!" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (_energyPoints > 0 && _hitPoints > 0)
+	if (_energyPoints > 0)
 	{
 		_energyPoints--;
 		_hitPoints += amount;
 		std::cout << "ClapTrap " << _name << " repaired himself " << amount << ", resulting " << _hitPoints << " points of hit left!" << std::endl;
 	}
 	else
-		std::cout << "ClapTrap doesn't have enough energy or hit points!" << std::endl;
+		std::cout << "ClapTrap doesn't have enough energy or hit points to repair himself!" << std::endl;
 }
 /*
 ** --------------------------------- ACCESSORS ----------------------------------

@@ -20,7 +20,7 @@
 # include "ClapTrap.hpp"
 # include "ScavTrap.hpp"
 
-class FragTrap : virtual public ClapTrap
+class FragTrap : public ClapTrap
 {
 
 	public:
@@ -28,12 +28,12 @@ class FragTrap : virtual public ClapTrap
 		FragTrap();
 		FragTrap(std::string name);
 		FragTrap( FragTrap const & src );
-		virtual ~FragTrap();
+		~FragTrap();
 
 		FragTrap &		operator=( FragTrap const & rhs );
 		void	highFivesGuys( void );
 };
 
-//std::ostream &			operator<<( std::ostream & o, FragTrap const & i );
+std::ostream &			operator<<( std::ostream & o, FragTrap const & i );
 
 #endif /* ******************************************************** FRAGTRAP_H */

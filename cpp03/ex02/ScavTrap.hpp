@@ -19,7 +19,7 @@
 # include <string>
 # include "ClapTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap
+class ScavTrap : public ClapTrap
 {
 	public:
 
@@ -33,5 +33,7 @@ class ScavTrap : virtual public ClapTrap
 		void guardGate();
 		void attack(const std::string& target);
 };
+
+std::ostream& operator<<(std::ostream& os, const ScavTrap& s);
 
 #endif /* ******************************************************** SCAVTRAP_H */

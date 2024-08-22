@@ -18,6 +18,9 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
+	setAttackDamage(20);
+	setEnergyPoints(50);
+	setHitPoints(100);
 	std::cout << "ScavTrap is created" << std::endl;
 }
 
@@ -32,7 +35,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 ScavTrap::ScavTrap( const ScavTrap & src ) : ClapTrap(src)
 {
 	*this = src;
-	std::cout << "copy constructor called" << std::endl;
+	std::cout << "Scav copy constructor called" << std::endl;
 }
 
 
@@ -49,12 +52,19 @@ ScavTrap::~ScavTrap()
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
-
+//Used one already made in ClapTrap
 ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 {
 	ClapTrap::operator=(rhs);
 	return *this;
 }
+
+std::ostream& operator<<(std::ostream& os, const ScavTrap& s)
+{
+    os << static_cast<const ClapTrap&>(s);
+    return os;
+}
+
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -67,5 +77,11 @@ void	ScavTrap::guardGate()
 
 void	ScavTrap::attack(const std::string& target)
 {
-	std::cout << "ScavTrap " << getName() << " attacks " << target << ", causing " << getAttackDamage() << " points of damage!" << std::endl;
+	if (getEnergyPoints() > 0 && getHitPoints() > 0)
+	{
+		setEnergyPoints(getEnergyPoints() - 1);
+		std::cout << "ScavTrap " << getName() << " attacks " << target << ", causing " << getAttackDamage() << " points of damage!" << std::endl;
+	}
+	else
+	std::cout << "ScavTrap doesn't have enough energy or hit points to attack!" << std::endl;
 }

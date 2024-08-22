@@ -35,7 +35,7 @@ class ClapTrap
 
 		ClapTrap& operator=( ClapTrap const & rhs );
 
-		void attack(const std::string& target);
+		virtual void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
@@ -49,6 +49,6 @@ class ClapTrap
 		void setEnergyPoints(unsigned int energyPoints);
 };
 
-//std::ostream& operator<<( std::ostream & o, ClapTrap const & i );
+std::ostream& operator<<(std::ostream& os, const ClapTrap& c);
 
 #endif /* ******************************************************** CLAPTRAP_H */

@@ -49,4 +49,6 @@ class ClapTrap
 		void setEnergyPoints(unsigned int energyPoints);
 };
 
+std::ostream& operator<<(std::ostream& os, const ClapTrap& c);
+
 #endif /* ******************************************************** CLAPTRAP_H */
