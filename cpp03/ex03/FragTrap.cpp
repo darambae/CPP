@@ -16,13 +16,18 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
+
 FragTrap::FragTrap() : ClapTrap()
 {
+	setHitPoints(100);
+	setEnergyPoints(100);
+	setAttackDamage(30);
 	std::cout << "A FragTrap is created" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
+	setName(name);
 	setHitPoints(100);
 	setEnergyPoints(100);
 	setAttackDamage(30);
@@ -55,6 +60,12 @@ FragTrap &				FragTrap::operator=( FragTrap const & rhs )
 	return *this;
 }
 
+std::ostream &			operator<<( std::ostream & o, FragTrap const & i )
+{
+	o << static_cast<const ClapTrap&>(i);
+	return o;
+}
+
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
@@ -62,7 +73,6 @@ void	FragTrap::highFivesGuys( void )
 {
 	std::cout << "Great job! Give me a High Five 🖐️" << std::endl;
 }
-
 
 
 /* ************************************************************************** */

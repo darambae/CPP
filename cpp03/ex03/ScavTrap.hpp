@@ -15,8 +15,6 @@
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
 
-# include <iostream>
-# include <string>
 # include "ClapTrap.hpp"
 
 class ScavTrap : virtual public ClapTrap
@@ -26,7 +24,7 @@ class ScavTrap : virtual public ClapTrap
 		ScavTrap();
 		ScavTrap(std::string name);
 		ScavTrap( ScavTrap const & src );
-		virtual ~ScavTrap();
+		~ScavTrap();
 
 		ScavTrap &		operator=( ScavTrap const & rhs );
 

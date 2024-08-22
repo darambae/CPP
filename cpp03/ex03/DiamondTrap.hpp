@@ -13,9 +13,6 @@
 #ifndef DIAMONDTRAP_HPP
 # define DIAMONDTRAP_HPP
 
-# include <iostream>
-# include <string>
-# include "ClapTrap.hpp"
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
 
@@ -26,7 +23,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap();
 		DiamondTrap(std::string name);
 		DiamondTrap( DiamondTrap const & src );
-		virtual ~DiamondTrap();
+		~DiamondTrap();
 
 		DiamondTrap &		operator=( DiamondTrap const & rhs );
 		void	whoAmI();
@@ -34,11 +31,8 @@ class DiamondTrap : public ScavTrap, public FragTrap
 	
 	private:
 		std::string _name;
-		int	_hitPoints;
-		int _energyPoints;
-		int _attackDamage;
 };
 
-// std::ostream &			operator<<( std::ostream & o, DiamondTrap const & i );
+std::ostream &			operator<<( std::ostream & os, DiamondTrap const & i );
 
 #endif /* ***************************************************** DIAMONDTRAP_H */

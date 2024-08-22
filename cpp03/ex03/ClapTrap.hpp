@@ -18,9 +18,12 @@
 # include <iostream>
 # include <string>
 
+/*Protected : it controls the visibility of class members when accessed from 
+derived classes or outside the class*/
+
 class ClapTrap
 {
-	private:
+	protected:
 		std::string _name;
 		int	_hitPoints;
 		int _energyPoints;
@@ -30,7 +33,7 @@ class ClapTrap
 		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap( ClapTrap const & src );
-		virtual ~ClapTrap();
+		~ClapTrap();
 
 		ClapTrap& operator=( ClapTrap const & rhs );
 
@@ -48,6 +51,6 @@ class ClapTrap
 		void setEnergyPoints(unsigned int energyPoints);
 };
 
-//std::ostream& operator<<( std::ostream & o, ClapTrap const & i );
+std::ostream& operator<<( std::ostream & o, ClapTrap const & i );
 
 #endif /* ******************************************************** CLAPTRAP_H */

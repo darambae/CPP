@@ -15,11 +15,12 @@
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
-# include <iostream>
-# include <string>
 # include "ClapTrap.hpp"
 # include "ScavTrap.hpp"
 
+
+/*virtual public : ensure that ClapTrap is only constructed once, no matter how many
+ times it’s inherited through different paths.*/
 class FragTrap : virtual public ClapTrap
 {
 	public:
@@ -27,12 +28,12 @@ class FragTrap : virtual public ClapTrap
 		FragTrap();
 		FragTrap(std::string name);
 		FragTrap( FragTrap const & src );
-		virtual ~FragTrap();
+		~FragTrap();
 
 		FragTrap &		operator=( FragTrap const & rhs );
 		void	highFivesGuys( void );
 };
 
-//std::ostream &			operator<<( std::ostream & o, FragTrap const & i );
+std::ostream &			operator<<( std::ostream & o, FragTrap const & i );
 
 #endif /* ******************************************************** FRAGTRAP_H */

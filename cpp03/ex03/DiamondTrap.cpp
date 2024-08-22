@@ -16,13 +16,25 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-DiamondTrap::DiamondTrap(){}
-
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name)
+DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap()
 {
-	_hitPoints = FragTrap::getHitPoints();
-	_energyPoints = ScavTrap::getEnergyPoints();
-	_attackDamage = FragTrap::getAttackDamage();
+	ClapTrap::setHitPoints(FragTrap::getHitPoints());
+	ClapTrap::setAttackDamage(FragTrap::getAttackDamage());
+	ClapTrap::setEnergyPoints(ScavTrap::getEnergyPoints());
+	std::cout << "DiamondTrap is created" << std::endl;
+}
+
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap(), _name(name)
+{
+	if (FragTrap::getHitPoints() != 100)
+		FragTrap::_hitPoints = 100;
+	setHitPoints(FragTrap::getHitPoints());
+	if (FragTrap::getAttackDamage() != 30)
+		FragTrap::_attackDamage = 30;
+	setAttackDamage(FragTrap::getAttackDamage());
+	if (ScavTrap::getEnergyPoints() != 50)
+		ScavTrap::_energyPoints = 50;
+	setEnergyPoints(ScavTrap::getEnergyPoints());
 	std::cout << "DiamondTrap " << name << " is created" << std::endl;
 }
 
@@ -51,10 +63,22 @@ DiamondTrap &				DiamondTrap::operator=( DiamondTrap const & rhs )
 {
 	if ( this != &rhs )
 	{
-		FragTrap::operator=(rhs);
+		setHitPoints(rhs.getHitPoints());
+		setAttackDamage(rhs.getAttackDamage());
+		setEnergyPoints(rhs.getEnergyPoints());
+        this->_name = rhs._name;
 	}
 	return *this;
 }
+
+std::ostream &			operator<<( std::ostream & os, DiamondTrap const & c )
+{
+	os << c.getName() << "'s energy point is " << c.getEnergyPoints() << std::endl;
+	os << c.getName() << "'s attack damage is " << c.getAttackDamage() << std::endl;
+	os << c.getName() << "'s hit point is " << c.getHitPoints() << std::endl;
+    return os;
+}
+
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -63,9 +87,10 @@ void	DiamondTrap::whoAmI()
 {
 	std::cout << "My name is " << _name << " and my ClapTrap name is " << ClapTrap::getName() << std::endl;
 }
+
 void	DiamondTrap::attack(const std::string& target)
 {
-	FragTrap::attack(target);
+	ScavTrap::attack(target);
 }
 
 

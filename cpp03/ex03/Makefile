@@ -12,7 +12,7 @@
 
 NAME = fragtrap 
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
