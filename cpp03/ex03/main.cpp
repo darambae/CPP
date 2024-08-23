@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:49:17 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/29 17:38:45 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 10:14:26 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int main( void )
     std::cout << frag << std::endl;
     DiamondTrap dia("PARK");
     std::cout << dia << std::endl;
-
+    FragTrap frag2("LEE2");    
+    std::cout << frag2 << std::endl;
+    
     std::cout << "----------Claptrap test-------------" << std::endl;
     clap.takeDamage(5);
     std::cout << clap;
@@ -59,6 +61,13 @@ int main( void )
     std::cout << dia;
     dia.whoAmI();
 
+    std::cout << "----------Fragtrap test-------------" << std::endl;
+    frag2.attack("target1");
+    std::cout << frag2;
+    frag2.takeDamage(20);
+    frag2.beRepaired(1);
+    std::cout << frag2;
+    frag2.highFivesGuys();
     
     return 0;
 }

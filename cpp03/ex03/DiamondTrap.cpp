@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:00:29 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/20 17:50:31 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 09:40:02 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,15 @@ DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap()
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap(), _name(name)
 {
+	std::cout << FragTrap::getHitPoints() << std::endl;
 	if (FragTrap::getHitPoints() != 100)
 		FragTrap::_hitPoints = 100;
 	setHitPoints(FragTrap::getHitPoints());
+	std::cout << FragTrap::getAttackDamage() << std::endl;
 	if (FragTrap::getAttackDamage() != 30)
 		FragTrap::_attackDamage = 30;
 	setAttackDamage(FragTrap::getAttackDamage());
+	std::cout << ScavTrap::getEnergyPoints() << std::endl;
 	if (ScavTrap::getEnergyPoints() != 50)
 		ScavTrap::_energyPoints = 50;
 	setEnergyPoints(ScavTrap::getEnergyPoints());

@@ -6,13 +6,13 @@
 #    By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/25 14:58:36 by dabae             #+#    #+#              #
-#    Updated: 2024/07/29 15:19:00 by dabae            ###   ########.fr        #
+#    Updated: 2024/08/23 09:47:38 by dabae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fragtrap 
 CC = c++
-FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
+FLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 all: $(NAME)

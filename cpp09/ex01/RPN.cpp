@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:58:43 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/20 17:39:56 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/21 14:28:47 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ Example : '1 2 + 3 * 4 -'
 Result : 5
 */
 
+//Should implement a case of division by 0on 
 void	RPN::run(const std::string& input)
 {
 	float num1;
