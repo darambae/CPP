@@ -16,13 +16,13 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cat::Cat()
+Cat::Cat() : Animal()
 {
 	type = "Cat";
 	std::cout << "Cat constructor is created" << std::endl;
 }
 
-Cat::Cat( const Cat & src )
+Cat::Cat( const Cat & src ) : Animal(src)
 {
 	*this = src;
 	std::cout << "Cat copy constructor is created" << std::endl;
@@ -46,7 +46,7 @@ Cat::~Cat()
 Cat &				Cat::operator=( Cat const & rhs )
 {
 	if ( this != &rhs )
-		Cat::operator=(rhs);
+		Animal::operator=(rhs);
 	return *this;
 }
 

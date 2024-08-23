@@ -35,4 +35,10 @@ class Animal
 
 };
 
+
+/*If the destructor of the base class is not declared as virtual, and you 
+delete an object of a derived class through a pointer to the base class, only 
+the base class destructor will be called. This can lead to incomplete destruction, 
+where the destructor of the derived class is not invoked, potentially causing resource 
+leaks or other undefined behavior.*/
 #endif /* ********************************************************** ANIMAL_H */
