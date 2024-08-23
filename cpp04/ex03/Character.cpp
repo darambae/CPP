@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:27:25 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/01 10:44:34 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 15:16:18 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,7 @@ Character &				Character::operator=( Character const & rhs )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-std::string const& Character::getName() const
-{
-	return name;
-}
+
 
 void	Character::equip(AMateria *m)
 {
@@ -106,6 +103,9 @@ void	Character::use(int idx, ICharacter &target)
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
+std::string const& Character::getName() const
+{
+	return name;
+}
 
 /* ************************************************************************** */

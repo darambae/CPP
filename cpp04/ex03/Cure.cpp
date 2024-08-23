@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:21:11 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/01 10:40:14 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 15:13:22 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Cure::Cure() : AMateria("cure") {};
 
 Cure::Cure( const Cure & src ) : AMateria("cure")
 {
-	*this = src;
+	this->type = src.getType();
 }
 
 /*
