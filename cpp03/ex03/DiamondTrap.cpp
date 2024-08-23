@@ -18,9 +18,18 @@
 
 DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap()
 {
-	ClapTrap::setHitPoints(FragTrap::getHitPoints());
-	ClapTrap::setAttackDamage(FragTrap::getAttackDamage());
-	ClapTrap::setEnergyPoints(ScavTrap::getEnergyPoints());
+	//std::cout << FragTrap::getHitPoints() << std::endl;
+	if (FragTrap::getHitPoints() != 100)
+		FragTrap::_hitPoints = 100;
+	setHitPoints(FragTrap::getHitPoints());
+	//std::cout << FragTrap::getAttackDamage() << std::endl;
+	if (FragTrap::getAttackDamage() != 30)
+		FragTrap::_attackDamage = 30;
+	setAttackDamage(FragTrap::getAttackDamage());
+	//std::cout << ScavTrap::getEnergyPoints() << std::endl;
+	if (ScavTrap::getEnergyPoints() != 50)
+		ScavTrap::_energyPoints = 50;
+	setEnergyPoints(ScavTrap::getEnergyPoints());
 	std::cout << "DiamondTrap is created" << std::endl;
 }
 
