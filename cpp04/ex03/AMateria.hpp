@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:13:10 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/01 10:20:58 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 17:27:25 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@
 # include <string>
 # include "ICharacter.hpp"
 
+/* Represent a type of magical substance(Materia), 
+An abstract base class for specific Materia types like Ice & Cure*/
 class AMateria
 {
 	protected:
 		std::string type;
+		
 	public:
 
 		AMateria();
@@ -36,7 +39,5 @@ class AMateria
 		virtual void use(ICharacter &target);
 	
 };
-
-std::ostream &			operator<<( std::ostream & o, AMateria const & i );
 
 #endif /* ******************************************************** AMATERIA_H */

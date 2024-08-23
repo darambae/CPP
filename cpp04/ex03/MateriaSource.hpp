@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:36:16 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/01 10:21:50 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 17:13:06 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 
-# include <iostream>
-# include <string>
 # include "AMateria.hpp"
 # include "IMateriaSource.hpp"
 

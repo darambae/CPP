@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:17:34 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/01 10:29:22 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 17:29:06 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include "AMateria.hpp"
 
 class AMateria;
+
+/*Define the behavior of characters who can equip and use Materia*/
 
 class ICharacter
 {

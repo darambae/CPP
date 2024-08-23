@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:21:19 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/01 10:21:25 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 17:16:25 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ class Cure : public AMateria
 		void use(ICharacter &target);
 };
 
-std::ostream &			operator<<( std::ostream & o, Cure const & i );
 
 #endif /* ************************************************************ CURE_H */
