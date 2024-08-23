@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:00:32 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/29 17:45:00 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 10:19:35 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap &		operator=( DiamondTrap const & rhs );
 		void	whoAmI();
 		void	attack(const std::string& target);
-	
+		std::string getName() const;	
 	private:
 		std::string _name;
 };
