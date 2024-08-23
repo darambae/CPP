@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:13:19 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/23 17:53:54 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 18:00:15 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ int main(void)
     me->equip(tmp);
     tmp = src->createMateria("ice");
     me->equip(tmp);
-    tmp = src->createMateria("cure");
-    me->equip(tmp);
+    if ((tmp = src->createMateria("cure")) !=  NULL)
+        me->equip(tmp);
     ICharacter* bob = new Character("bob");
     std::cout << "---------Try using Materias----- \n";
     me->use(0, *bob);
