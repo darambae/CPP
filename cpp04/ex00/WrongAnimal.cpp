@@ -18,7 +18,7 @@
 
 WrongAnimal::WrongAnimal()
 {
-	type = "";
+	type = "Wrong Animal type";
 	std::cout << "WrongAnimal constructor is created" << std::endl;
 }
 
