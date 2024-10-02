@@ -22,25 +22,18 @@ Intern::Intern( const Intern & src )
 {
 	*this = src;
 }
-
-
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
-
 Intern::~Intern(){}
-
-
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
-
 Intern &				Intern::operator=( Intern const & rhs )
 {
 	(void)rhs;
 	return *this;
 }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------

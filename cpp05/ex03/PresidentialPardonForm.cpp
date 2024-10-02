@@ -53,15 +53,6 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void PresidentialPardonForm::setTarget(std::string target)
-{
-	this->_target = target;
-}
-
-const std::string& PresidentialPardonForm::getTarget() const
-{
-	return this->_target;
-}
 
 void PresidentialPardonForm::beSigned(Bureaucrat &bureaucrat)
 {
@@ -108,6 +99,16 @@ std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+
+void PresidentialPardonForm::setTarget(std::string target)
+{
+	this->_target = target;
+}
+
+const std::string& PresidentialPardonForm::getTarget() const
+{
+	return this->_target;
+}
 
 
 /* ************************************************************************** */

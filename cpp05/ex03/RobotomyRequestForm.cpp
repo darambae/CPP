@@ -53,15 +53,6 @@ RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm con
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-const std::string&	RobotomyRequestForm::getTarget( void ) const
-{
-	return this->_target;
-}
-
-void	RobotomyRequestForm::setTarget( std::string target )
-{
-	this->_target = target;
-}
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const 
 {
@@ -88,9 +79,19 @@ std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
 	o << "Minimum grade to execute : " << i.getGradeToExecute() << std::endl;
 	return o;
 }
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+const std::string&	RobotomyRequestForm::getTarget( void ) const
+{
+	return this->_target;
+}
+
+void	RobotomyRequestForm::setTarget( std::string target )
+{
+	this->_target = target;
+}
 
 /* ************************************************************************** */

@@ -75,21 +75,11 @@ std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void ShrubberyCreationForm::setTarget(std::string target)
-{
-	this->_target = target;
-}
-
-const std::string& ShrubberyCreationForm::getTarget() const
-{
-	return this->_target;
-}
-
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	(void)executor;
-	std::ofstream file(this->getTarget() + "_shrubbery");
+	std::ofstream file((this->getTarget() + "_shrubbery").c_str());
 	if (!file.is_open())
 		throw ShrubberyCreationForm::FileNotOpenedException();
 	file << tree;
@@ -114,6 +104,14 @@ const char* ShrubberyCreationForm::TargetErrorException::what() const throw()
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+void ShrubberyCreationForm::setTarget(std::string target)
+{
+	this->_target = target;
+}
 
+const std::string& ShrubberyCreationForm::getTarget() const
+{
+	return this->_target;
+}
 
 /* ************************************************************************** */
