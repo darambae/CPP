@@ -29,6 +29,7 @@ int main()
     for (int j = 0; j < 10; j++)
         delete animal[j];
 
+
     Dog shiva;    
 
     std::cout << shiva.getBrain()->ideas[1] << std::endl;

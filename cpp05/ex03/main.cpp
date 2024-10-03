@@ -34,7 +34,7 @@ int main ( void )
     AForm* nonExistingForm = NULL;
     try
     {
-        nonExistingForm = i1.makeForm("Dog adoption", "Shiva");
+        nonExistingForm = i1.makeForm("Dog adoption", "Sila");
         std::cout << *nonExistingForm << std::endl;
     }
     catch(const std::exception& e)

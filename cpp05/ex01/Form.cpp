@@ -20,9 +20,9 @@ Form::Form() : _name("default"), _signed(false), _gradeToSign(150), _gradeToExec
 Form::Form( std::string const & name, int gradeToSign, int gradeToExecute ) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
 	if (gradeToSign < 1 || gradeToExecute < 1)
-		throw Form::GradeTooHighException();
+		throw GradeTooHighException();
 	else if (gradeToSign > 150 || gradeToExecute > 150)
-		throw Form::GradeTooLowException();
+		throw GradeTooLowException();
 }
 
 Form::Form( const Form & src ) : _name(src.getName()), _signed(src.getSigned()), _gradeToSign(src.getGradeToSign()), _gradeToExecute(src.getGradeToExecute())
@@ -62,6 +62,28 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+
+void Form::beSigned(Bureaucrat &bureaucrat)
+{
+	if (bureaucrat.getGrade() > this->getGradeToSign())
+		throw GradeTooLowException();
+	this->setSigned(true);
+	std::cout << bureaucrat.getName() << " has signed " << this->getName() << " form\n"; 
+}
+
+const char* Form::GradeTooHighException::what() const throw()
+{
+	return "its grade to sign this form is too high";
+}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+	return "its grade to sign this form is too low";
+}
+
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
 std::string Form::getName() const
 {
 	return this->_name;
@@ -86,27 +108,5 @@ int Form::getGradeToExecute() const
 {
 	return this->_gradeToExecute;
 }
-
-void Form::beSigned(Bureaucrat &bureaucrat)
-{
-	if (bureaucrat.getGrade() > this->getGradeToSign())
-		throw Form::GradeTooLowException();
-	this->setSigned(true);
-}
-
-const char* Form::GradeTooHighException::what() const throw()
-{
-	return "'s grade is too high";
-}
-
-const char* Form::GradeTooLowException::what() const throw()
-{
-	return "'s grade is too low";
-}
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
 
 /* ************************************************************************** */

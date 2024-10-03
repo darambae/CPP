@@ -66,20 +66,6 @@ std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-std::string Bureaucrat::getName() const
-{
-	return this->_name;
-}
-
-int Bureaucrat::getGrade() const
-{
-	return this->_grade;
-}
-
-void Bureaucrat::setGrade(int grade)
-{
-	this->_grade = grade;
-}
 
 void	Bureaucrat::incrementGrade()
 {
@@ -114,6 +100,19 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+std::string Bureaucrat::getName() const
+{
+	return this->_name;
+}
 
+int Bureaucrat::getGrade() const
+{
+	return this->_grade;
+}
+
+void Bureaucrat::setGrade(int grade)
+{
+	this->_grade = grade;
+}
 
 /* ************************************************************************** */

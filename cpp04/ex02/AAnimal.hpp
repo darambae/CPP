@@ -35,4 +35,10 @@ class AAnimal
 
 };
 
+/*Interface VS Abstract class
+- Interface is a class consisted of only pure virtual functions, on the other hand, abstract classes can have mix of them.
+- Abstract Class: Used when you want to provide some common base functionality to derived classes, along with a contract for other functions.
+- Interface: Used to define a strict contract for what methods a class should implement, without any shared functionality or state.
+*/
+
 #endif /* ********************************************************** AANIMAL_H */

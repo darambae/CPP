@@ -73,8 +73,13 @@ void	MateriaSource::learnMateria(AMateria *m)
 			return;
 		}
 		if (i == 3)
+		{
+			delete m;
 			std::cout << "Can't learn another Materia anymore\n";
+		}
 	}
+	
+
 }
 
 AMateria* MateriaSource::createMateria(std::string const &type)

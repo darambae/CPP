@@ -42,9 +42,16 @@ Character::Character( const Character & src )
 
 Character::~Character()
 {
-	std::cout << "Destroying Characters...." << std::endl;
-	for (int i = 0; i < 4 && slots[i]; i++)
-		delete slots[i];
+	std::cout << "Destroying slots of " << name <<"...." << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (slots[i])
+		{
+			std::cout << "Successfully deleting " << slots[i]->getType() << std::endl;
+			delete slots[i];
+			slots[i] = NULL;
+		}
+	}
 }
 
 /*
@@ -59,6 +66,7 @@ Character &				Character::operator=( Character const & rhs )
 		for (int i = 0; i < 4 && slots[i]; i++)
 		{
 			delete slots[i];
+			slots[i] = NULL;
 			if (rhs.slots[i])
 				this->slots[i] = rhs.slots[i]->clone();
 		}
@@ -74,10 +82,18 @@ Character &				Character::operator=( Character const & rhs )
 void	Character::equip(AMateria *m)
 {
 	int i = 0;
+	if (m == 0)
+	{
+		std::cout << "No Materia found to equip\n";
+		return;
+	}
 	while (slots[i] && i < 4)
 		i++;
 	if (!slots[i])
+	{
+		std::cout << this->getName() << " has equipped " << m->getType() << std::endl;
 		slots[i] = m;
+	}
 	else
 		std::cout << "Slot is already full\n";
 }
@@ -88,8 +104,12 @@ void	Character::unequip(int idx)
 	else if (slots[idx] == NULL)
 		std::cout << "There's nothing to be unequiped\n";
 	else
+	{
+		std::cout << "Succesfully unequipped " << slots[idx]->getType() << std::endl;
 		slots[idx] = NULL;
+	}
 }
+
 void	Character::use(int idx, ICharacter &target)
 {
 	if (idx < 0 || idx > 3)
