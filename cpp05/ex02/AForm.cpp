@@ -63,6 +63,39 @@ std::ostream &			operator<<( std::ostream & o, AForm const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+
+void AForm::beSigned(Bureaucrat &bureaucrat)
+{
+	if (bureaucrat.getGrade() > this->getGradeToSign())
+		throw AForm::GradeTooLowException();
+	if (this->getSigned())
+		throw AForm::FormAlreadySignedException();
+	this->setSigned(true);
+	std::cout << bureaucrat.getName() << " has signed " << this->getName() << " form\n"; 
+}
+
+const char* AForm::GradeTooHighException::what() const throw()
+{
+	return "Grade is too high to sign";
+}
+
+const char* AForm::GradeTooLowException::what() const throw()
+{
+	return "Grade is too low to sign";
+}
+
+const char* AForm::FormAlreadySignedException::what() const throw()
+{
+	return "Form is already signed";
+}
+
+const char* AForm::FormNotSignedException::what() const throw()
+{
+	return "Form is not signed";
+}
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
 const std::string& AForm::getName() const
 {
 	return this->_name;
@@ -87,35 +120,6 @@ int AForm::getGradeToExecute() const
 {
 	return this->_gradeToExecute;
 }
-
-void AForm::beSigned(Bureaucrat &bureaucrat)
-{
-	this->setSigned(true);
-	std::cout << bureaucrat.getName() << " has signed " << this->getName() << std::endl;
-}
-
-const char* AForm::GradeTooHighException::what() const throw()
-{
-	return "Grade is too high";
-}
-
-const char* AForm::GradeTooLowException::what() const throw()
-{
-	return "Grade is too low";
-}
-
-const char* AForm::FormAlreadySignedException::what() const throw()
-{
-	return "Form is already signed";
-}
-
-const char* AForm::FormNotSignedException::what() const throw()
-{
-	return "Form is not signed";
-}
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
 
 
 /* ************************************************************************** */
