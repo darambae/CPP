@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:25:53 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/07 17:54:53 by dabae            ###   ########.fr       */
+/*   Updated: 2024/10/03 15:17:04 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,6 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void PresidentialPardonForm::setTarget(std::string target)
-{
-	this->_target = target;
-}
-
-const std::string& PresidentialPardonForm::getTarget() const
-{
-	return this->_target;
-}
 
 void PresidentialPardonForm::beSigned(Bureaucrat &bureaucrat)
 {
@@ -104,5 +95,14 @@ std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i 
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+void PresidentialPardonForm::setTarget(std::string target)
+{
+	this->_target = target;
+}
+
+const std::string& PresidentialPardonForm::getTarget() const
+{
+	return this->_target;
+}
 
 /* ************************************************************************** */

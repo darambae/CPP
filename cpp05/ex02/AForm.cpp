@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:25:48 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/07 18:06:02 by dabae            ###   ########.fr       */
+/*   Updated: 2024/10/03 15:16:15 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ AForm::AForm( std::string const & name, int gradeToSign, int gradeToExecute ) : 
 		throw AForm::GradeTooHighException();
 	if (gradeToSign > 150 || gradeToExecute > 150)
 		throw AForm::GradeTooLowException();
-
 }
 
 AForm::AForm( const AForm & src ) : _name(src.getName()), _signed(src.getSigned()), _gradeToSign(src.getGradeToSign()), _gradeToExecute(src.getGradeToExecute())
@@ -63,30 +62,6 @@ std::ostream &			operator<<( std::ostream & o, AForm const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-const std::string& AForm::getName() const
-{
-	return this->_name;
-}
-
-bool AForm::getSigned() const
-{
-	return this->_signed;
-}
-
-void AForm::setSigned(bool sign)
-{
-	this->_signed = sign;
-}
-
-int AForm::getGradeToSign() const
-{
-	return this->_gradeToSign;
-}
-
-int AForm::getGradeToExecute() const
-{
-	return this->_gradeToExecute;
-}
 
 void AForm::beSigned(Bureaucrat &bureaucrat)
 {
@@ -116,6 +91,30 @@ const char* AForm::FormNotSignedException::what() const throw()
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+const std::string& AForm::getName() const
+{
+	return this->_name;
+}
+
+bool AForm::getSigned() const
+{
+	return this->_signed;
+}
+
+void AForm::setSigned(bool sign)
+{
+	this->_signed = sign;
+}
+
+int AForm::getGradeToSign() const
+{
+	return this->_gradeToSign;
+}
+
+int AForm::getGradeToExecute() const
+{
+	return this->_gradeToExecute;
+}
 
 
 /* ************************************************************************** */

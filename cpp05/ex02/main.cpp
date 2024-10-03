@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:50:19 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/07 17:31:50 by dabae            ###   ########.fr       */
+/*   Updated: 2024/10/03 15:07:56 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 int main ( void )
 {
     //change the grade of the bureaucrat to test the exceptions
-    Bureaucrat b1("Alice", 60);
+    Bureaucrat b1("Alice", 30);
     //Bureaucrat b2("John", 140);
 
     std::cout << b1 << std::endl;
