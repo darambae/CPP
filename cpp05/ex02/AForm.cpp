@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:25:48 by dabae             #+#    #+#             */
-/*   Updated: 2024/10/03 15:23:49 by dabae            ###   ########.fr       */
+/*   Updated: 2024/10/03 15:26:48 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,35 +81,6 @@ const char* AForm::GradeTooHighException::what() const throw()
 const char* AForm::GradeTooLowException::what() const throw()
 {
 	return "Grade is too low to sign";
-}
-
-const char* AForm::FormAlreadySignedException::what() const throw()
-{
-	return "Form is already signed";
-}
-
-const char* AForm::FormNotSignedException::what() const throw()
-{
-	return "Form is not signed";
-}
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
-void AForm::beSigned(Bureaucrat &bureaucrat)
-{
-	this->setSigned(true);
-	std::cout << bureaucrat.getName() << " has signed " << this->getName() << std::endl;
-}
-
-const char* AForm::GradeTooHighException::what() const throw()
-{
-	return "Grade is too high";
-}
-
-const char* AForm::GradeTooLowException::what() const throw()
-{
-	return "Grade is too low";
 }
 
 const char* AForm::FormAlreadySignedException::what() const throw()
