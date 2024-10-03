@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:25:53 by dabae             #+#    #+#             */
-/*   Updated: 2024/10/03 15:17:04 by dabae            ###   ########.fr       */
+/*   Updated: 2024/10/03 15:25:02 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,24 +53,6 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-
-void PresidentialPardonForm::beSigned(Bureaucrat &bureaucrat)
-{
-	if (bureaucrat.getGrade() > this->getGradeToSign())
-	{
-		throw PresidentialPardonForm::GradeTooLowException();
-	}
-	else if (this->getSigned())
-	{
-		throw PresidentialPardonForm::FormAlreadySignedException();
-	}
-	else
-	{
-		this->setSigned(true);
-		std::cout << "successfully signed " << this->getName() << std::endl;
-	}
-}
-
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {	
 	(void)executor;
@@ -91,9 +73,19 @@ std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i 
 	o << "Minimum grade to execute : " << i.getGradeToExecute() << std::endl;
 	return o;
 }
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+void PresidentialPardonForm::setTarget(std::string target)
+{
+	this->_target = target;
+}
+
+const std::string& PresidentialPardonForm::getTarget() const
+{
+	return this->_target;
+}
 
 void PresidentialPardonForm::setTarget(std::string target)
 {

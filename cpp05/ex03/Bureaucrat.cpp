@@ -66,20 +66,6 @@ std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-std::string Bureaucrat::getName() const
-{
-	return this->_name;
-}
-
-int Bureaucrat::getGrade() const
-{
-	return this->_grade;
-}
-
-void Bureaucrat::setGrade(int grade)
-{
-	this->_grade = grade;
-}
 
 void	Bureaucrat::incrementGrade()
 {
@@ -118,10 +104,6 @@ void	Bureaucrat::signAForm(AForm &form)
 		throw AForm::GradeTooLowException();
 	else if (form.getSigned())
 		throw AForm::FormAlreadySignedException();
-	// if (form.getSigned())
-	// 	std::cout << this->getName() << " cannot sign " << form.getName() << " because it's already signed" << std::endl;
-	// else if (this->getGrade() > form.getGradeToSign())
-	// 	std::cout << this->getName() << " cannot sign " << form.getName() << " because his grade is too low" << std::endl;
 	else
 		form.beSigned(*this);
 }
@@ -138,6 +120,20 @@ void	Bureaucrat::executeForm(AForm const & form)
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+std::string Bureaucrat::getName() const
+{
+	return this->_name;
+}
+
+int Bureaucrat::getGrade() const
+{
+	return this->_grade;
+}
+
+void Bureaucrat::setGrade(int grade)
+{
+	this->_grade = grade;
+}
 
 
 /* ************************************************************************** */

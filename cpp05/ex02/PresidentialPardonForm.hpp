@@ -32,7 +32,6 @@ class PresidentialPardonForm : public AForm
 		void setTarget(std::string target);
 		const std::string & getTarget() const;
 		
-		void beSigned(Bureaucrat &bureaucrat);
 		void execute(Bureaucrat const & executor) const;
 		
 		class TargetErrorException : public std::exception

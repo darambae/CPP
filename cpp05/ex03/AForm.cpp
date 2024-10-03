@@ -63,35 +63,13 @@ std::ostream &			operator<<( std::ostream & o, AForm const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-const std::string& AForm::getName() const
-{
-	return this->_name;
-}
-
-bool AForm::getSigned() const
-{
-	return this->_signed;
-}
-
-void AForm::setSigned(bool sign)
-{
-	this->_signed = sign;
-}
-
-int AForm::getGradeToSign() const
-{
-	return this->_gradeToSign;
-}
-
-int AForm::getGradeToExecute() const
-{
-	return this->_gradeToExecute;
-}
 
 void AForm::beSigned(Bureaucrat &bureaucrat)
 {
+	if (bureaucrat.getGrade() > this->getGradeToSign())
+		throw AForm::GradeTooLowException();
 	this->setSigned(true);
-	std::cout << bureaucrat.getName() << " has signed " << this->getName() << std::endl;
+	std::cout << bureaucrat.getName() << " has signed " << this->getName() << " form\n"; 
 }
 
 const char* AForm::GradeTooHighException::what() const throw()
@@ -116,6 +94,30 @@ const char* AForm::FormNotSignedException::what() const throw()
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+const std::string& AForm::getName() const
+{
+	return this->_name;
+}
+
+bool AForm::getSigned() const
+{
+	return this->_signed;
+}
+
+void AForm::setSigned(bool sign)
+{
+	this->_signed = sign;
+}
+
+int AForm::getGradeToSign() const
+{
+	return this->_gradeToSign;
+}
+
+int AForm::getGradeToExecute() const
+{
+	return this->_gradeToExecute;
+}
 
 
 /* ************************************************************************** */

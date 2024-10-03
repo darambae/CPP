@@ -31,11 +31,11 @@ int main ( void )
     std::cout << *presidential << std::endl;
 
     std::cout << "Test[2] Error case" << std::endl;
-    AForm* nonExistingForm = nullptr;
+    AForm* nonExistingForm = NULL;
     try
     {
         nonExistingForm = i1.makeForm("Dog adoption", "Shiva");
-        std::cout << *shrubbery << std::endl;
+        std::cout << *nonExistingForm << std::endl;
     }
     catch(const std::exception& e)
     {

@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:25:48 by dabae             #+#    #+#             */
-/*   Updated: 2024/10/03 15:16:15 by dabae            ###   ########.fr       */
+/*   Updated: 2024/10/03 15:23:49 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,39 @@ std::ostream &			operator<<( std::ostream & o, AForm const & i )
 
 /*
 ** --------------------------------- METHODS ----------------------------------
+*/
+
+void AForm::beSigned(Bureaucrat &bureaucrat)
+{
+	if (bureaucrat.getGrade() > this->getGradeToSign())
+		throw AForm::GradeTooLowException();
+	if (this->getSigned())
+		throw AForm::FormAlreadySignedException();
+	this->setSigned(true);
+	std::cout << bureaucrat.getName() << " has signed " << this->getName() << " form\n"; 
+}
+
+const char* AForm::GradeTooHighException::what() const throw()
+{
+	return "Grade is too high to sign";
+}
+
+const char* AForm::GradeTooLowException::what() const throw()
+{
+	return "Grade is too low to sign";
+}
+
+const char* AForm::FormAlreadySignedException::what() const throw()
+{
+	return "Form is already signed";
+}
+
+const char* AForm::FormNotSignedException::what() const throw()
+{
+	return "Form is not signed";
+}
+/*
+** --------------------------------- ACCESSOR ---------------------------------
 */
 
 void AForm::beSigned(Bureaucrat &bureaucrat)

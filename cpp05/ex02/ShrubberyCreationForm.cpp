@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:26:19 by dabae             #+#    #+#             */
-/*   Updated: 2024/10/03 15:20:39 by dabae            ###   ########.fr       */
+/*   Updated: 2024/10/03 15:25:16 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i )
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	(void)executor;
-	std::ofstream file(this->getTarget() + "_shrubbery");
+	std::ofstream file((this->getTarget() + "_shrubbery").c_str());
 	if (!file.is_open())
 		throw ShrubberyCreationForm::FileNotOpenedException();
 	file << tree;
