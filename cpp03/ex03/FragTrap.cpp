@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:08:01 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/20 17:50:10 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 16:58:49 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-
 FragTrap::FragTrap() : ClapTrap()
 {
-	setHitPoints(100);
-	setEnergyPoints(100);
-	setAttackDamage(30);
+	_hitPoints = 100;
+	_energyPoints = 100;
+	_attackDamage = 30;
+	_name = "NONE";
 	std::cout << "A FragTrap is created" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	setName(name);
-	setHitPoints(100);
-	setEnergyPoints(100);
-	setAttackDamage(30);
+	_hitPoints = 100;
+	_energyPoints = 100;
+	_attackDamage = 30;
+	_name = name;
 	std::cout << "FragTrap " << name << " is created" << std::endl;
 }
 
@@ -73,6 +73,8 @@ void	FragTrap::highFivesGuys( void )
 {
 	std::cout << "Great job! Give me a High Five 🖐️" << std::endl;
 }
+
+
 
 
 /* ************************************************************************** */

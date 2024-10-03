@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:18:11 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/30 16:01:00 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 14:13:59 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #ifndef DOG_HPP
 # define DOG_HPP
 
-# include <iostream>
-# include <string>
 # include "Animal.hpp"
 # include "Brain.hpp"
 

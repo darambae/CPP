@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:13:53 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/31 09:55:02 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 14:42:59 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ Animal::Animal()
 
 Animal::Animal( const Animal & src )
 {
+	this->type = src.getType();
 	std::cout << "Animal copy constructor is called" << std::endl;
-	*this = src;
 }
 
 /*
@@ -46,8 +46,8 @@ Animal &	Animal::operator=( Animal const & rhs )
 	if ( this != &rhs )
 	{
 		this->type = rhs.getType();
-		std::cout << "Animal assignment operator is called" << std::endl;
-	}	
+	}
+	std::cout << "Animal assignment operator is called" << std::endl;	
 	return *this;
 }
 
@@ -55,19 +55,19 @@ Animal &	Animal::operator=( Animal const & rhs )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-const std::string&	Animal::getType() const
-{
-	return type;
-}
+
 
 void	Animal::makeSound() const
 {
-	std::cout << "ROAR WOOF PURRRS HEE-HAWWW OINKOINK" << std::endl;
+	std::cout << "---------------------------------" << std::endl;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
+const std::string&	Animal::getType() const
+{
+	return type;
+}
 
 /* ************************************************************************** */

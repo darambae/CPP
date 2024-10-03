@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 14:46:20 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/30 15:02:04 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 11:56:28 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ class Brain
 		std::string ideas[100];
 };
 
-std::ostream &			operator<<( std::ostream & o, Brain const & i );
 
 #endif /* *********************************************************** BRAIN_H */

@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:41 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/20 17:51:04 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 16:55:56 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,13 @@
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap() : _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	setHitPoints(10);
-	setAttackDamage(0);
-	setEnergyPoints(10);
 	std::cout << "Claptrap is created" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	setName(name);
-	setHitPoints(10);
-	setAttackDamage(0);
-	setEnergyPoints(10);
 	std::cout << "Claptrap " << _name << " is created" << std::endl;
 }
 
@@ -116,16 +109,6 @@ std::string ClapTrap::getName() const
 	return _name;
 }
 
-void ClapTrap::setName(std::string name)
-{
-	_name = name;
-}
-
-void ClapTrap::setAttackDamage(unsigned int damage)
-{
-	_attackDamage = damage;
-}
-
 int ClapTrap::getAttackDamage() const
 {
 	return _attackDamage;
@@ -136,20 +119,11 @@ int ClapTrap::getHitPoints() const
 	return _hitPoints;
 }
 
-void ClapTrap::setHitPoints(unsigned int hitPoints)
-{
-	_hitPoints = hitPoints;
-}
-
 int ClapTrap::getEnergyPoints() const
 {
 	return _energyPoints;
 }
 
-void ClapTrap::setEnergyPoints(unsigned int energyPoints)
-{
-	_energyPoints = energyPoints;
-}
 
 
 

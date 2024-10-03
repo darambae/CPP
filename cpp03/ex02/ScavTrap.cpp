@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:01:17 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/29 17:34:40 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 17:00:20 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,21 @@
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
-
 ScavTrap::ScavTrap() : ClapTrap()
 {
-	setAttackDamage(20);
-	setEnergyPoints(50);
-	setHitPoints(100);
+	_attackDamage = 20;
+	_energyPoints = 50;
+	_hitPoints = 100;
+	_name = "NONE";
 	std::cout << "ScavTrap is created" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	setAttackDamage(20);
-	setEnergyPoints(50);
-	setHitPoints(100);
+	_attackDamage = 20;
+	_energyPoints = 50;
+	_hitPoints = 100;
+	_name = name;
 	std::cout << "ScavTrap " << name << " is created" << std::endl;
 }
 
@@ -72,16 +73,16 @@ std::ostream& operator<<(std::ostream& os, const ScavTrap& s)
 
 void	ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " << getName() << " have enterred in Gate keeper mode" << std::endl;
+	std::cout << "ScavTrap " << _name << " have enterred in Gate keeper mode" << std::endl;
 }
 
 void	ScavTrap::attack(const std::string& target)
 {
-	if (getEnergyPoints() > 0 && getHitPoints() > 0)
+	if (_energyPoints > 0 && _hitPoints > 0)
 	{
-		setEnergyPoints(getEnergyPoints() - 1);
-		std::cout << "ScavTrap " << getName() << " attacks " << target << ", causing " << getAttackDamage() << " points of damage!" << std::endl;
+		_energyPoints--;
+		std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
 	}
 	else
-	std::cout << "ScavTrap doesn't have enough energy or hit points to attack!" << std::endl;
+		std::cout << "ScavTrap doesn't have enough energy or hit points to attack!" << std::endl;
 }

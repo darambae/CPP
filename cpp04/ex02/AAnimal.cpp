@@ -25,7 +25,7 @@ AAnimal::AAnimal()
 AAnimal::AAnimal( const AAnimal & src )
 {
 	std::cout << "AAnimal copy constructor is called" << std::endl;
-	*this = src;
+	this->type = src.getType();	
 }
 
 /*
@@ -46,8 +46,8 @@ AAnimal &	AAnimal::operator=( AAnimal const & rhs )
 	if ( this != &rhs )
 	{
 		this->type = rhs.getType();
-		std::cout << "AAnimal assignment operator is called" << std::endl;
 	}	
+	std::cout << "AAnimal assignment operator is called" << std::endl;
 	return *this;
 }
 
@@ -55,10 +55,6 @@ AAnimal &	AAnimal::operator=( AAnimal const & rhs )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-const std::string&	AAnimal::getType() const
-{
-	return type;
-}
 
 // void	AAnimal::makeSound() const
 // {
@@ -68,6 +64,10 @@ const std::string&	AAnimal::getType() const
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+const std::string&	AAnimal::getType() const
+{
+	return type;
+}
 
 
 /* ************************************************************************** */
