@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:58:54 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/31 10:00:14 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 15:06:57 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int main()
     //AAnimal test; ->non-instantiable(abstract class)
     //create an array of animal and assign dog and cat classes
     AAnimal *animal[10];
-
+    std::cout << "---------Test : Creating an array of animal and assign dog and cat classes----------" << std::endl;
     for (int i = 0; i < 5; i++)
     {
         animal[i] = new Dog();
         animal[i + 5] = new Cat();
-    }    
-
+    }
+    std::cout << "---Test : Deleting the array of animal---" << std::endl;
     for (int j = 0; j < 10; j++)
         delete animal[j];
     std::cout << "-----Test : Creating Shiva-------\n";

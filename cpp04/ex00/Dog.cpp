@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:18:08 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/30 14:18:03 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 11:42:29 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog()
+Dog::Dog() : Animal()
 {
 	type = "Dog";
 	std::cout << "Dog constructor is created" << std::endl;
 }
 
-Dog::Dog( const Dog & src )
+Dog::Dog( const Dog & src ) : Animal(src)
 {
 	*this = src;
 	std::cout << "Dog copy constructor is created" << std::endl;

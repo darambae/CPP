@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:00:29 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/23 10:20:32 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 16:57:50 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,29 @@
 
 DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap()
 {
-	//std::cout << FragTrap::getHitPoints() << std::endl;
 	if (FragTrap::getHitPoints() != 100)
 		FragTrap::_hitPoints = 100;
-	setHitPoints(FragTrap::getHitPoints());
-	//std::cout << FragTrap::getAttackDamage() << std::endl;
+	_hitPoints = FragTrap::getHitPoints();
 	if (FragTrap::getAttackDamage() != 30)
 		FragTrap::_attackDamage = 30;
-	setAttackDamage(FragTrap::getAttackDamage());
-	//std::cout << ScavTrap::getEnergyPoints() << std::endl;
+	_attackDamage = FragTrap::getAttackDamage();
 	if (ScavTrap::getEnergyPoints() != 50)
 		ScavTrap::_energyPoints = 50;
-	setEnergyPoints(ScavTrap::getEnergyPoints());
+	_energyPoints = ScavTrap::getEnergyPoints();
 	std::cout << "DiamondTrap is created" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap(), _name(name)
 {
-	std::cout << FragTrap::getHitPoints() << std::endl;
 	if (FragTrap::getHitPoints() != 100)
 		FragTrap::_hitPoints = 100;
-	setHitPoints(FragTrap::getHitPoints());
-	std::cout << FragTrap::getAttackDamage() << std::endl;
+	_hitPoints = FragTrap::getHitPoints();
 	if (FragTrap::getAttackDamage() != 30)
 		FragTrap::_attackDamage = 30;
-	setAttackDamage(FragTrap::getAttackDamage());
-	std::cout << ScavTrap::getEnergyPoints() << std::endl;
+	_attackDamage = FragTrap::getAttackDamage();
 	if (ScavTrap::getEnergyPoints() != 50)
 		ScavTrap::_energyPoints = 50;
-	setEnergyPoints(ScavTrap::getEnergyPoints());
+	_energyPoints = ScavTrap::getEnergyPoints();
 	std::cout << "DiamondTrap " << name << " is created" << std::endl;
 }
 
@@ -75,9 +69,9 @@ DiamondTrap &				DiamondTrap::operator=( DiamondTrap const & rhs )
 {
 	if ( this != &rhs )
 	{
-		setHitPoints(rhs.getHitPoints());
-		setAttackDamage(rhs.getAttackDamage());
-		setEnergyPoints(rhs.getEnergyPoints());
+		_hitPoints = rhs._hitPoints;
+		_energyPoints = rhs._energyPoints;
+		_attackDamage = rhs._attackDamage;
         this->_name = rhs._name;
 	}
 	return *this;

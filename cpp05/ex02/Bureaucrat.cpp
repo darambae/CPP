@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:32:37 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/07 16:53:44 by dabae            ###   ########.fr       */
+/*   Updated: 2024/10/03 15:18:38 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ void	Bureaucrat::executeForm(AForm const & form)
 	if (form.getGradeToExecute() < this->getGrade())
 		throw Bureaucrat::GradeTooLowException();
 	form.execute(*this);
-	std::cout << this->getName() << " executed " << form.getName() << std::endl;
 }
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

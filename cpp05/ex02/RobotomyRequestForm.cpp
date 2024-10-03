@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:52:17 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/07 17:54:23 by dabae            ###   ########.fr       */
+/*   Updated: 2024/10/03 15:13:49 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,14 @@ RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm con
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const 
 {
 	(void)executor;
-	std::cout << this->getTarget() << " has been robotomized successfully." << std::endl;
+	srand(time(NULL));
+	int i = rand() % 2;
+
+	std::cout << "DRRRRR---------" << std::endl;
+	std::cout << "DRRRRR---------" << std::endl;
+	std::cout << "DRRRRR---------" << std::endl;
+	if (i)
+		std::cout << this->getTarget() << " has been robotomized successfully." << std::endl;
 }
 
 const char* RobotomyRequestForm::TargetErrorException::what() const throw()

@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:18:08 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/31 09:30:49 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 14:44:03 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Dog::Dog() : Animal(), cerveau(new Brain())
 
 Dog::Dog( const Dog & src ) : Animal(src), cerveau(new Brain(*src.cerveau))
 {
+	this->type = src.getType();
 	std::cout << "Dog copy constructor is called" << std::endl;
 }
 

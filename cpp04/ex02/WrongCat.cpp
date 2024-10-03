@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:18:03 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/30 14:19:14 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 15:09:08 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ WrongCat::WrongCat()
 
 WrongCat::WrongCat( const WrongCat & src )
 {
-	*this = src;
+	this->type = src.getType();
 	std::cout << "WrongCat copy constructor is created" << std::endl;
 }
 
@@ -46,7 +46,7 @@ WrongCat::~WrongCat()
 WrongCat &				WrongCat::operator=( WrongCat const & rhs )
 {
 	if ( this != &rhs )
-		WrongCat::operator=(rhs);
+		this->type = rhs.getType();
 	return *this;
 }
 

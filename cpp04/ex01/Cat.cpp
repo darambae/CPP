@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:18:03 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/31 09:33:33 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 14:45:05 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ Cat::Cat() : Animal(), cerveau(new Brain())
 }
 
 Cat::Cat( const Cat & src ) : Animal(src), cerveau(new Brain(*src.cerveau))
-{	
+{
+	this->type = src.getType();
 	std::cout << "Cat copy constructor is called" << std::endl;
 }
 

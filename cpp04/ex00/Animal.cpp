@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 11:13:53 by dabae             #+#    #+#             */
-/*   Updated: 2024/07/30 14:23:37 by dabae            ###   ########.fr       */
+/*   Updated: 2024/08/23 11:48:49 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal()
+Animal::Animal() : type("default")
 {
-	type = "";
 	std::cout << "Animal constructor is created" << std::endl;
 }
 
@@ -62,7 +61,7 @@ std::string	Animal::getType() const
 
 void	Animal::makeSound() const
 {
-	std::cout << "ROAR WOOF PURRRS HEE-HAWWW OINKOINK" << std::endl;
+	std::cout << "------------" << std::endl;
 }
 
 /*

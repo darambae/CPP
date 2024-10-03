@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:25:48 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/07 18:06:02 by dabae            ###   ########.fr       */
+/*   Updated: 2024/10/03 15:26:48 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ AForm::AForm( std::string const & name, int gradeToSign, int gradeToExecute ) : 
 		throw AForm::GradeTooHighException();
 	if (gradeToSign > 150 || gradeToExecute > 150)
 		throw AForm::GradeTooLowException();
-
 }
 
 AForm::AForm( const AForm & src ) : _name(src.getName()), _signed(src.getSigned()), _gradeToSign(src.getGradeToSign()), _gradeToExecute(src.getGradeToExecute())

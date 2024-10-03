@@ -18,7 +18,11 @@
 
 WrongAnimal::WrongAnimal()
 {
+<<<<<<< HEAD
+	type = "mutant";
+=======
 	type = "Wrong Animal type";
+>>>>>>> 45f9c4dd25ff7c261e61b5cd72712565bc5513be
 	std::cout << "WrongAnimal constructor is created" << std::endl;
 }
 
