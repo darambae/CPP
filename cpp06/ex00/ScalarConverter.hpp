@@ -17,6 +17,8 @@
 
 # include <iostream>
 # include <string>
+# include <stdexcept>
+# include <climits>
 
 class ScalarConverter
 {
@@ -33,10 +35,16 @@ class ScalarConverter
 		
 		static void			convert( std::string const & str );
 		
-		class NonDisplayable : public std::exception
+		class NonDisplayable : public std::runtime_error
 		{
 			public:
-				virtual const char * what() const throw();
+				NonDisplayable();
+		};
+
+		class Impossible : public std::runtime_error
+		{
+			public:
+				Impossible();
 		};
 
 };

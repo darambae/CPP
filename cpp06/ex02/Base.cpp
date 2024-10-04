@@ -66,7 +66,7 @@ void Base::identify(Base& p)
 		std::cout << "A" << std::endl;
 		return;
 	}
-	catch (const std::bad_cast&){
+	catch (const std::exception& e){
 		try
 		{
 			B &b = dynamic_cast<B&>(p);
