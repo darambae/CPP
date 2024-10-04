@@ -9,25 +9,6 @@
 #    Updated: 2024/08/08 17:10:26 by dabae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-#------------------------------------------------------------------------------#
-#                                  GENERICS                                    #
-#------------------------------------------------------------------------------#
-
-# Special variables
-DEFAULT_GOAL: all
-.DELETE_ON_ERROR: $(NAME)
-.PHONY: all bonus clean fclean re
-
-# Hide calls
-export VERBOSE	=	TRUE
-ifeq ($(VERBOSE),TRUE)
-	HIDE =
-else
-	HIDE = @
-endif
-
-
 #------------------------------------------------------------------------------#
 #                                VARIABLES                                     #
 #------------------------------------------------------------------------------#
@@ -37,8 +18,7 @@ CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I.
 RM		=	rm -rf
 
-# Dir and file names
-NAME	=	convert_scalar
+NAME	=	convert
 SRCS	=	$(wildcard *.cpp)
 OBJS	=	$(SRCS:.cpp=.o)
 INC		=	$(wildcard *.hpp)

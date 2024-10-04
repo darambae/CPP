@@ -48,13 +48,6 @@ ScalarConverter &				ScalarConverter::operator=( ScalarConverter const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, ScalarConverter const & i )
-{
-	(void)i;
-	return o;
-}
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
@@ -77,15 +70,15 @@ void handleConversionException(const std::string& type)
 
 char const *		ScalarConverter::NonDisplayable::what() const throw()
 {
-	return "Non displayable";
+	return "Not displayable";
 }
 
 void	convertToChar( std::string const & str )
 {
 	try
 	{
-		int i = std::stoi(str);
-		if (i < 0 || i > 127)
+		int i = strtol(str.c_str(), NULL, 10);
+		if (i < 32 || i > 127)
 			throw ScalarConverter::NonDisplayable();
 			
 		char c = static_cast<char>(i);
@@ -101,15 +94,10 @@ void	convertToChar( std::string const & str )
 }
 void		convertToInt( std::string const & str )
 {
-	try
-	{
-		int i = std::stoi(str);
-		std::cout << "int: " << i << std::endl;
-	}
-	catch (...)
-    {
-        handleConversionException("int");
-    }
+	if (str == "nan" || str == "inf" || str == "-inf" || str == "+inf")
+		handleConversionException("int");
+	int i = strtol(str.c_str(), NULL, 10);
+	std::cout << "int: " << i << std::endl;
 }
 
 //Number of digit after the decimal point to be fixed at school
@@ -117,11 +105,12 @@ void	convertToFloat( std::string const & str )
 {
 	try
 	{
-		float f = static_cast<float>(std::stof(str));
+		float f = static_cast<float>(strtof(str.c_str(), NULL));
+		std::cout << "f: " << f << std::endl;
 		std::string formattedStr = str;
 
-		if (formattedStr.back() == 'f')
-			formattedStr.pop_back();
+		if (formattedStr[formattedStr.length() - 1] == 'f')
+			formattedStr.erase(formattedStr.length() - 1);
         if (formattedStr.find('.') == std::string::npos)
 			formattedStr += ".0";
 		else if (!std::isdigit(formattedStr[formattedStr.find('.') + 1]))
@@ -131,7 +120,7 @@ void	convertToFloat( std::string const & str )
 		else if (std::isinf(f) || std::isnan(f))
 			std::cout << "float: " << str << "f" << std::endl;
 		else
-			std::cout << "float: " << f << "f" << std::endl;
+			std::cout << "float: " << formattedStr << "f" << std::endl;
 	}
 	catch (...)
     {
@@ -142,12 +131,13 @@ void	convertToDouble( std::string const & str )
 {
 	try
 	{
-		double d = static_cast<double>(std::stod(str));
+		double d = static_cast<double>(strtod(str.c_str(), NULL));
+		std::cout << "d: " << d << std::endl;
 		std::string formattedStr = str;
 
         // Check if the input is an integer value and format it accordingly
-		if (formattedStr.back() == 'f')
-			formattedStr.pop_back();
+		if (formattedStr[formattedStr.length() - 1] == 'f')
+			formattedStr.erase(formattedStr.length() - 1);
         if (formattedStr.find('.') == std::string::npos)
 			formattedStr += ".0";
 		else if (!std::isdigit(formattedStr[formattedStr.find('.') + 1]))
@@ -157,7 +147,7 @@ void	convertToDouble( std::string const & str )
 		else if (std::isinf(d) || std::isnan(d))
 			std::cout << "double: " << str << std::endl;
 		else
-			std::cout << "double: " << d << std::endl;
+			std::cout << "double: " << formattedStr << std::endl;
 	}
 	catch (...)
     {
@@ -171,13 +161,35 @@ void	ScalarConverter::convert( std::string const & str )
 	{
 		convertToChar(str);
 	}
-	catch (ScalarConverter::NonDisplayable & e)
+	catch (const std::exception& e)
 	{
 		std::cerr << "char: " << e.what() << std::endl;
 	}
-	convertToInt(str);
-	convertToFloat(str);
-	convertToDouble(str);
+	try
+	{
+		convertToInt(str);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "int: " << e.what() << std::endl;
+	}
+	try
+	{
+		convertToFloat(str);	
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "float: " << e.what() << std::endl;
+	}
+	try
+	{
+		convertToDouble(str);	
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "double: " << e.what() << std::endl;
+	}
+	
 }
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
