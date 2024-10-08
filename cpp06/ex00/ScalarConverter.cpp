@@ -64,50 +64,45 @@ std::string	returnFormatted(std::string const & str)
 	return formattedStr;
 }
 
-// void	convertToChar( std::string const & str )
-// {
-// 	try
-// 	{
-// 		char *end;
-// 		float f = strtof(str.c_str(), &end);
-// 		//std::cout << *end << std::endl;
-// 		if (end == str)
-// 			throw ScalarConverter::Impossible();
-// 		int i = static_cast<int>(f);
-// 		if (i > 31 && i < 127)
-// 			std::cout << "Char: '" << static_cast<char>(f) << "'" << std::endl;
-// 		else if (f == 0 && str.length() == 1 && isprint(*end))
-// 			std::cout << "char: '" << str << "'" << std::endl;
-// 		else if (f == 0 && str.length() > 1)
-// 			throw ScalarConverter::Impossible();
-// 		else if (std::isinf(f) || std::isnan(f))
-// 			throw ScalarConverter::Impossible();
-// 		else if (f - i > 0)
-// 			throw ScalarConverter::NonDisplayable();
-// 		else
-// 			throw ScalarConverter::NonDisplayable();
-// 	}
-// 	catch(const std::exception& e)
-// 	{
-// 		std::cerr << "char: " << e.what() << '\n';
-// 	}
-// }
+int	counter(std::string str, char c)
+{
+	int	count = 0;
+	for (int i = 0; i < static_cast<int>(str.length()); ++i)
+	{
+		if (str[i] == c)
+			count++;
+	}
+	return count;
+}
 
 void convertToChar(const std::string& str)
 {
     try
     {
+        if (str.length() == 1 && isprint(str[0]) && !isdigit(str[0]))
+        {
+            std::cout << "Char: '" << str[0] << "'" << std::endl;
+            return;
+        }
+
         char* end;
         float f = strtof(str.c_str(), &end);
+        
+		// Check if the entire string was converted to a valid number
+        if (end == str || (*end && end != str.c_str() + str.length() - 1))
+            throw ScalarConverter::Impossible();
+
         if (std::isinf(f) || std::isnan(f) || (f == 0 && *end && str.length() > 1))
             throw ScalarConverter::Impossible();
+
         int i = static_cast<int>(f);
-        if (f - i > 0 || !isprint(i))
+		//if float or double number is given or not printable
+        if ((f != 0 && f - i > 0) || i < 32 || i > 126)
             throw ScalarConverter::NonDisplayable();
+
+        // If the integer is a printable character, display it
         if (i > 31 && i < 127)
             std::cout << "Char: '" << static_cast<char>(i) << "'" << std::endl;
-        else if (str.length() == 1 && isprint(str[0]))
-            std::cout << "Char: '" << str << "'" << std::endl;
         else
             throw ScalarConverter::Impossible();
     }
@@ -117,84 +112,59 @@ void convertToChar(const std::string& str)
     }
 }
 
-		
-void		convertToInt( std::string const & str )
+void convertToInt(const std::string& str)
 {
-	try
-	{
-		char *end;
-		float f = strtof(str.c_str(), &end);
-
-		if (*end || (f == 0 && *end && str.length() > 1))
-			throw ScalarConverter::Impossible();
-		if (f == 0 && str.length() == 1 && isprint(static_cast<int>(f)))
-			f = str[0];
-		if (f == 48 && str[0] == '0')
-			f = 0;
-		if (f == 0 && str.length() > 1)
-			throw ScalarConverter::Impossible();
-		else if (std::isnan(f) || std::isinf(f))
-			throw ScalarConverter::Impossible();
-		else if (f > (float)INT_MAX || f < (float)INT_MIN)
-			throw ScalarConverter::Impossible();
-		std::cout << "int: " << static_cast<int>(f) << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "int: " << e.what() << '\n';
-	}
+    try
+    {
+        char* end;
+        float f = strtof(str.c_str(), &end);
+		
+        // Check for single non-numeric characters like '-'
+        if (str.length() == 1 && isprint(str[0]) && !isdigit(str[0]))
+            f = str[0];
+        else if (counter(str, 'f') > 1 || (*end && *end != 'f') || (f == 0 && *end && str.length() > 1))
+            throw ScalarConverter::Impossible();
+        
+		// handle out of range and 'nan', 'nanf', 'inf' ..... 
+        if (std::isnan(f) || std::isinf(f) || f > (float)INT_MAX || f < (float)INT_MIN)
+            throw ScalarConverter::Impossible();
+        std::cout << "int: " << static_cast<int>(f) << std::endl;
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << "int: " << e.what() << '\n';
+    }
 }
 
-
-
-//Number of digit after the decimal point to be fixed at school
-void	convertToFloat( std::string const & str )
+void	convert_float_double(std::string str, bool is_float)
 {
+	char *end;
+	double f;
+
+	std::string data_type = is_float ? "float" : "double";
 	try
 	{
-		char *end;
-		//float f = static_cast<float>(strtof(str.c_str(), &end));
-		float f = strtof(str.c_str(), &end);
+		if (is_float) 
+		{
+			float temp = strtof(str.c_str(), &end);
+			f = static_cast<double>(temp);
+		} else
+			f = strtod(str.c_str(), &end); 
 		if (std::isinf(f) || std::isnan(f))
 		{
-			std::cout << "float: ";
+			std::cout << data_type + ": ";
 			if (str[0] == '+')
 				std::cout << '+';
-			std::cout << f << "f" << std::endl;			
+			std::cout << f << (is_float ? "f" : "") << std::endl;			
 		}
-		else if (end == str || !*end)
+		else if (end == str || (*end && end != str.c_str() + str.length() - 1))
 			throw ScalarConverter::Impossible();
 		else
-			std::cout << "float: " << returnFormatted(str) << "f" << std::endl;
+			std::cout << data_type << ": " << returnFormatted(str) << (is_float ? "f" : "") << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << "float: " << e.what() << '\n';
-	}
-	
-}
-void	convertToDouble( std::string const & str )
-{
-	try
-	{
-		char *end;
-		double d = static_cast<double>(strtod(str.c_str(), &end));
-
-		if (std::isinf(d) || std::isnan(d))
-		{
-			std::cout << "double: ";
-			if (str[0] == '+')
-				std::cout << '+';
-			std::cout << d << std::endl;
-		}
-		else if (end == str || !*end)
-			throw ScalarConverter::Impossible();
-		else
-			std::cout << "double: " << returnFormatted(str) << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "double: " << e.what() << '\n';
+		std::cerr << data_type << ": " << e.what() << '\n';
 	}
 }
 
@@ -202,8 +172,8 @@ void	ScalarConverter::convert( std::string const & str )
 {
 	convertToChar(str);
 	convertToInt(str);
-	convertToFloat(str);	
-	convertToDouble(str);	
+	convert_float_double(str, 1);
+	convert_float_double(str, 0);	
 }
 
 ScalarConverter::NonDisplayable::NonDisplayable(): std::runtime_error("Non displayable") {}
