@@ -16,19 +16,15 @@
 # include <iostream>
 # include <string>
 # include <cstdlib>
+# include <exception>
 
 class Base
 {
 	public:
-		virtual ~Base() throw();
+		virtual ~Base();
 		Base* generate( void );
 		void identify(Base* p);
 		void identify(Base& p);
-		class wrongCast : public std::exception
-		{
-			public:
-				virtual const char * what() const throw();
-		};
 };
 
 

@@ -11,10 +11,7 @@
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <limits>
-#include <cmath>
-#include <stdexcept>
-#include <iomanip>
+
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
@@ -175,6 +172,7 @@ void	ScalarConverter::convert( std::string const & str )
 	convert_float_double(str, 1);
 	convert_float_double(str, 0);	
 }
+
 
 ScalarConverter::NonDisplayable::NonDisplayable(): std::runtime_error("Non displayable") {}
 

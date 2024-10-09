@@ -19,6 +19,8 @@
 # include <string>
 # include <stdexcept>
 # include <climits>
+#include <cmath>
+#include <iomanip>
 
 class ScalarConverter
 {

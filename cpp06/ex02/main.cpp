@@ -24,23 +24,20 @@ int main (void)
     Base* random2 = base1.generate();
     Base& base2 = *random2;
     
-    try
-    {
-        base1.identify(random1);
-    }
-    catch(const Base::wrongCast e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        base1.identify(base2);
-    }
-    catch(const Base::wrongCast e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    
+
+    std::cout << "---------------Normal Test-------------------\n\n";
+    base1.identify(random1);
+    base1.identify(base2);
+
+    std::cout << "\n---------------Error Test--------------------\n\n";
+    Base err;
+    Base *random3 = NULL;
+    Base& base3 = *random3;
+    std::cout << "[Case 1] identify an empty Base with pointer\n";
+    err.identify(random3);
+    std::cout << "[Case 2] identify an empty Base with ref\n";
+    err.identify(base3);
+
     delete random1;
     delete random2;
     return 0;

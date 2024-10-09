@@ -15,7 +15,7 @@
 #include "B.hpp"
 #include "C.hpp"
 
-Base::~Base() throw()
+Base::~Base()
 {
 }
 
@@ -44,9 +44,10 @@ Base* Base::generate(void)
 		return new C();
 	}
 }
-
+// If dynamic_cast<A*>(p) fails, it return nullptr -> no try-catch needed
 void Base::identify(Base* p)
 {
+	std::cout << "The result of the identification using Base pointer is ";
 	if (dynamic_cast<A*>(p))
 		std::cout << "A" << std::endl;
 	else if (dynamic_cast<B*>(p))
@@ -54,11 +55,13 @@ void Base::identify(Base* p)
 	else if (dynamic_cast<C*>(p))
 		std::cout << "C" << std::endl;
 	else
-		std::cout << "Unknown" << std::endl;
+		std::cout << "unknown" << std::endl;
 }
 
+// If dynamic_cast<A&>(p) fails, it throws std::bad_cast.
 void Base::identify(Base& p)
 {
+	std::cout << "The result of the identification using Base ref is ";
 	try
 	{
 		A &a = dynamic_cast<A&>(p);
@@ -85,16 +88,11 @@ void Base::identify(Base& p)
 			}
 			catch(const std::exception& e)
 			{
-				std::cerr << e.what() << '\n';
+
+				std::cerr << "failed because of " << e.what() << '\n';
 			}
 		}
 	}
-	std::cout << "Unknown" << std::endl;
-}
-
-const char * Base::wrongCast::what() const throw()
-{
-	return "Wrong cast";
 }
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
