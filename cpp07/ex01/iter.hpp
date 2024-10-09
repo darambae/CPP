@@ -18,8 +18,14 @@
 #include <iostream>
 
 template <typename T>
-
 void iter(T* address, size_t len_arr, void (*f)(T&))
+{
+    for (size_t i = 0; i < len_arr; i++)
+        f(address[i]);
+}
+
+template <typename T>
+void iter(T* address, size_t len_arr, void (*f)(const T&))
 {
     for (size_t i = 0; i < len_arr; i++)
         f(address[i]);
