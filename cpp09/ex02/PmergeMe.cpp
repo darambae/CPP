@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:08:46 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/20 17:39:13 by dabae            ###   ########.fr       */
+/*   Updated: 2024/10/15 15:50:35 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,9 @@ void	printDeque(std::deque<int> &d)
 }
 
 //Check if the input is positive integers and has enough arguments
-bool	PmergeMe::createContainers(int ac, const char **av)
+bool	PmergeMe::createContainers(int ac, char **av)
 {
+	char *end;
 	if (ac == 1)
 	{
 		std::cout << "Error: empty arguments" << std::endl;
@@ -93,8 +94,9 @@ bool	PmergeMe::createContainers(int ac, const char **av)
 		{
 			try
 			{
-				int num = std::stoi(av[i]);
-				if (num < 0)
+				int num = std::atoi(av[i]);
+				long l = std::strtol(av[i], &end, 10);
+				if (num < 0 || l < 0 || *end)
 					throw PmergeMe::InvalidInputException();
 				_deque.push_back(num);
 				_vector.push_back(num);
@@ -129,6 +131,7 @@ void	PmergeMe::sortVector(std::vector<int> &v)
 	sortVector(left);
 	sortVector(right);
 	
+	v.resize(left.size() + right.size());
 	std::merge(left.begin(), left.end(), right.begin(), right.end(), v.begin());
 }
 
@@ -147,7 +150,7 @@ void	PmergeMe::sortDeque(std::deque<int> &d)
 	std::merge(left.begin(), left.end(), right.begin(), right.end(), d.begin());
 }
 
-void	PmergeMe::run(int ac, const char **av)
+void	PmergeMe::run(int ac, char **av)
 {
 	if (createContainers(ac, av))
 	{

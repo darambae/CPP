@@ -6,27 +6,9 @@
 #    By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/15 10:58:14 by dabae             #+#    #+#              #
-#    Updated: 2024/08/19 14:50:35 by dabae            ###   ########.fr        #
+#    Updated: 2024/10/15 15:52:15 by dabae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-#------------------------------------------------------------------------------#
-#                                  GENERICS                                    #
-#------------------------------------------------------------------------------#
-
-# Special variables
-DEFAULT_GOAL: all
-.DELETE_ON_ERROR: $(NAME)
-.PHONY: all bonus clean fclean re
-
-# Hide calls
-export VERBOSE	=	TRUE
-ifeq ($(VERBOSE),TRUE)
-	HIDE =
-else
-	HIDE = @
-endif
-
 
 #------------------------------------------------------------------------------#
 #                                VARIABLES                                     #

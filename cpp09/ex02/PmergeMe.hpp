@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:08:49 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/20 16:00:30 by dabae            ###   ########.fr       */
+/*   Updated: 2024/10/15 15:51:57 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ class PmergeMe
 
 		PmergeMe &		operator=( PmergeMe const & rhs );
 
-		void	run(int ac, const char **av);
-		bool	createContainers(int ac, const char **av);
+		void	run(int ac, char **av);
+		bool	createContainers(int ac, char **av);
 		void	sortVector(std::vector<int> &v);
 		void	sortDeque(std::deque<int> &d);
 		class InvalidInputException : public std::exception

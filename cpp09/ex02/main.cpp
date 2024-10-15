@@ -6,7 +6,7 @@
 /*   By: dabae <dabae@student.42perpignan.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:08:51 by dabae             #+#    #+#             */
-/*   Updated: 2024/08/20 17:30:10 by dabae            ###   ########.fr       */
+/*   Updated: 2024/10/15 15:51:41 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*To get unique random numbers in macOS, 
 use `jot -r 3000 1 100000 | sort -u | awk 'NR <= 3000' | tr '\n' ' '`*/
 
-int main(int argc, const char** argv)
+int main(int argc, char** argv)
 {
     PmergeMe insertSort;
     try
