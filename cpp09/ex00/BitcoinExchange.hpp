@@ -9,6 +9,7 @@
 /*   Updated: 2024/08/19 11:26:49 by dabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#pragma once
 
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
@@ -16,10 +17,12 @@
 # include <iostream>
 # include <string>
 # include <fstream>
-# include <list>
+//# include <list>
+# include <map>
 # include <algorithm>
 # include <stdexcept>
 # include <sstream>
+# include <cmath>
 
 /*Using std::list*/
 /*
@@ -28,19 +31,14 @@ Characteristics:
 - Doubly linked list.
 - No random access.
 - No iterators.
-
-Note: Initially I used std::multimap, but I changed it to std::list 
-because I found that multimap sorts the keys automatically. And it gave a different 
-result from the expected one. To use list with key and value pairs, I used std::pair.
 */
 
-
-/*Using std::multimap*/
+/*std::map*/
 /*
 Characteristics:
 - An associative container (fast search, insertion, deletion).
 - Elements are sorted by key.
-- Allows duplicate keys.
+- Unique keys.
 
 Note: it sorts the keys automatically. */
 
@@ -60,7 +58,8 @@ class BitcoinExchange
 		std::string	findClosestDate(const std::string& date);
 		
 		private:
-			std::list<std::pair<std::string, float> > _data;
+			//std::list<std::pair<std::string, float> > _data;
+			std::map<std::string, float> _data;
 };
 
 

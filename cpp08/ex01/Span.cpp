@@ -61,10 +61,12 @@ Span &				Span::operator=( Span const & rhs )
 */
 void	Span::addNumber(int n)
 {
-	if (_container->size() < _n)
+	if (_n == 0)
+		throw std::out_of_range("The size of this container is 0");
+	else if (_container->size() < _n)
 		_container->push_back(n);
 	else
-		throw std::out_of_range("Out of range");
+		throw std::out_of_range("It's already full!");
 }
 
 int		Span::shortestSpan(void)

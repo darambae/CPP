@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
-
-
+#include <stack>
 int main (void)
 {
     std::vector<int> v;
@@ -29,10 +28,21 @@ int main (void)
     s.insert(42);
     s.insert(15);
 
+    //Shouldn't work because stack doesn't support iterator by default
+    std::stack<int> st;
+    st.push(1);
+    st.push(2);
+    st.push(3);
+    st.push(4);
+    st.push(5);
+
     std::cout << "----Normal test----\n";
-    std::cout << easyfind(v, 5) << " is found in vector" << std::endl;
-    std::cout << easyfind(s, 31) << " is found in set" << std::endl;
-    std::cout << "----Not found test----\n";
+    
+    std::cout << "Looking for 5 in vector v ----> " << easyfind(v, 5) << " is found" << std::endl;
+    std::cout << "Looking for 31 in set s ----> " << easyfind(s, 31) << " is found" << std::endl;
+    //std::cout << "Looking for 4 in stack st ----> " << easyfind(st, 4) << " is found" << std::endl;
+    
+    std::cout <<  "\n----Not found test----\n";
     try
     {
         std::cout << easyfind(v, 10) << std::endl;

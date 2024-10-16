@@ -28,13 +28,14 @@ class Span
 		Span(Span const &src);
 		~Span();
 
-		Span &		operator=( Span const & rhs );
-		void	addNumber(int n);
-		int		shortestSpan(void);
-		int		longestSpan(void);
-		void 	fillNumber(void);
-		unsigned int	getN(void) const;
+		Span &				operator=( Span const & rhs );
+		void				addNumber(int n);
+		int					shortestSpan(void);
+		int					longestSpan(void);
+		void 				fillNumber(void);
+		unsigned int		getN(void) const;
 		std::vector<int>	*getContainer(void) const;
+		
 	private:
 		unsigned int _n;
 		std::vector<int> *_container;
@@ -42,4 +43,5 @@ class Span
 };
 
 std::ostream &			operator<<( std::ostream & o, Span const & span );
+
 #endif /* ************************************************************ SPAN_H */

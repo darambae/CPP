@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
@@ -23,7 +21,8 @@
 #include <list>
 #include <set>
 
-template <typename T>int easyfind(T& container, int n)
+template <typename T>
+int easyfind(T& container, int n)
 {
     typename T::iterator it = std::find(container.begin(), container.end(), n);
     
@@ -33,5 +32,7 @@ template <typename T>int easyfind(T& container, int n)
         throw std::out_of_range("Element not found");
     }
 }
+
+
 
 #endif /* ************************************************************* EASYFIND_H */
