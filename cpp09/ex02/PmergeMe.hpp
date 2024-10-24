@@ -50,8 +50,8 @@ class PmergeMe
 
 		void	run(int ac, char **av);
 		bool	createContainers(int ac, char **av);
-		void	sortVector(std::vector<int> &v);
-		void	sortDeque(std::deque<int> &d);
+		template <typename Container>
+		void	sortContainer(Container &c);
 		class InvalidInputException : public std::exception
 		{
 			public:

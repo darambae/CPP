@@ -68,18 +68,6 @@ BitcoinExchange &				BitcoinExchange::operator=( BitcoinExchange const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-// Since list doesn't provide a built-in mechanisms for searching by key, here I made a functor to mimic the behavior of std::find()
-// struct CompareFirst {
-//     CompareFirst(const std::string& key) : _key(key) {}
-
-//     bool operator()(const std::pair<std::string, float>& pair) const {
-//         return pair.first == _key;
-//     }
-
-// 	private:
-// 		std::string _key;
-// };
-
 /* Transform csv file to list/map with key value pair */
 void	BitcoinExchange::dataToList()
 {
@@ -111,7 +99,6 @@ void	BitcoinExchange::dataToList()
 /*Read through input file and search through the data list/map */
 void	BitcoinExchange::printResult( const std::string& filename )
 {
-	//std::list<std::pair<std::string, float> >::iterator itData;
 	std::ifstream inputFile;
 	inputFile.open(filename.c_str());
 	if (!inputFile.is_open())
@@ -151,13 +138,11 @@ void	BitcoinExchange::printResult( const std::string& filename )
 			continue;
 		}
 	
-		//itData = std::find_if(_data.begin(), _data.end(), CompareFirst(key));
 		std::map<std::string, float>::iterator itData = _data.find(key);
 		std::string closestDate;
 		if (itData == _data.end())
 		{
 			closestDate = findClosestDate(key);
-			//itData = std::find_if(_data.begin(), _data.end(), CompareFirst(closestDate));
 			itData = _data.find(closestDate);
 		}
 		if (itData != _data.end())
@@ -171,7 +156,6 @@ std::string	BitcoinExchange::findClosestDate(const std::string& date)
 {
 	std::string closestDate;
 	std::map<std::string, float>::iterator it = _data.lower_bound(date);
-	// std::list<std::pair<std::string, float> >::iterator it;
 
     if (it == _data.begin())
     	closestDate = it->first;
@@ -190,14 +174,6 @@ std::string	BitcoinExchange::findClosestDate(const std::string& date)
 			closestDate = it->first;
     	}
 	}
-	
-	// for (it = _data.begin(); it != _data.end(); it++)
-	// {
-	// 	if (it->first < date)
-	// 		closestDate = it->first;
-	// }
-	// if (closestDate == "")
-	// 	closestDate = _data.begin()->first;
 	return closestDate;
 }
 

@@ -16,7 +16,7 @@
 # include <iostream>
 # include <string>
 # include <stack>
-
+# include <cmath>
 //Using std::stack
 /*
 Characteristics:

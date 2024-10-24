@@ -121,33 +121,20 @@ bool	PmergeMe::createContainers(int ac, char **av)
 	}
 	return 1;
 }
-void	PmergeMe::sortVector(std::vector<int> &v)
+
+template <typename Container>
+void	PmergeMe::sortContainer(Container &c)
 {
-	if (v.size() <= 1)
+	if (c.size() <= 1)
 		return ;
-	size_t	halfWay = v.size() / 2;
-	std::vector<int>	left(v.begin(), v.begin() + halfWay);
-	std::vector<int>	right(v.begin() + halfWay, v.end());
-	sortVector(left);
-	sortVector(right);
+	size_t	halfWay = c.size() / 2;
+	Container	left(c.begin(), c.begin() + halfWay);
+	Container	right(c.begin() + halfWay, c.end());
+	sortContainer(left);
+	sortContainer(right);
 	
-	v.resize(left.size() + right.size());
-	std::merge(left.begin(), left.end(), right.begin(), right.end(), v.begin());
-}
-
-
-void	PmergeMe::sortDeque(std::deque<int> &d)
-{
-	if (d.size() <= 1)
-		return ;
-	size_t	halfWay = d.size() / 2;
-	std::deque<int>		left(d.begin(), d.begin() + halfWay);
-	std::deque<int>		right(d.begin() + halfWay, d.end());
-	sortDeque(left);
-	sortDeque(right);
-
-	d.resize(left.size() + right.size());
-	std::merge(left.begin(), left.end(), right.begin(), right.end(), d.begin());
+	c.resize(left.size() + right.size());
+	std::merge(left.begin(), left.end(), right.begin(), right.end(), c.begin());
 }
 
 void	PmergeMe::run(int ac, char **av)
@@ -156,7 +143,7 @@ void	PmergeMe::run(int ac, char **av)
 	{
 		clock_t	start, end;
 		start = clock();
-		sortDeque(_deque);
+		sortContainer(_deque);
 		end = clock();
 		if (isDuplicate(_deque))
 		{
@@ -169,7 +156,7 @@ void	PmergeMe::run(int ac, char **av)
 		std::cout << std::endl;
 		std::cout << "Time taken to sort numbers using deque: " << static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000 << "ms" << std::endl;
 		start = clock();
-		sortVector(_vector);
+		sortContainer(_vector);
 		end = clock();
 		// std::cout << "After sorting using vector: ";
 		// for (size_t i = 0; i < _vector.size(); i++)

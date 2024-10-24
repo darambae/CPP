@@ -17,21 +17,11 @@
 # include <iostream>
 # include <string>
 # include <fstream>
-//# include <list>
 # include <map>
 # include <algorithm>
 # include <stdexcept>
 # include <sstream>
 # include <cmath>
-
-/*Using std::list*/
-/*
-Characteristics:
-- Sequence container (fast insert/delete at the beginning or end).
-- Doubly linked list.
-- No random access.
-- No iterators.
-*/
 
 /*std::map*/
 /*
@@ -58,7 +48,6 @@ class BitcoinExchange
 		std::string	findClosestDate(const std::string& date);
 		
 		private:
-			//std::list<std::pair<std::string, float> > _data;
 			std::map<std::string, float> _data;
 };
 
